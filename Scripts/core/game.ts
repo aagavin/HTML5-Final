@@ -1,8 +1,8 @@
 /// <reference path="_reference.ts"/>
 
 /**
- * @author Aaron Fernandes & Arlina Ramrattan
- * @studentID 300773526 & 300799246
+ * @author Aaron Fernandes, Arlina Ramrattan, Neil Reading & Omid Khataee 
+ * @studentID
  * @date []
  * @description This file is the entry point for the game
  * @version 1.0 - Shark attack game

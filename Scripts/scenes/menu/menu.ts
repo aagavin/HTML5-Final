@@ -35,11 +35,11 @@ module scenes {
 
 			// Add Menu Label
 			this._menuLabel = new objects.Label(
-				"Space Shark Attack 3", "60px","Tahoma, Geneva, sans-serif", "#eee",
+				"Shark Attack 3: In Space", "60px","Tahoma, Geneva, sans-serif", "#eee",
 				400, 140
 			);
 			this.addChild(new objects.Label(
-				"Space Shark Attack 3", "60px","Tahoma, Geneva, sans-serif", "#000",
+				"Shark Attack 3: In Space", "60px","Tahoma, Geneva, sans-serif", "#000",
 				403, 143
 			));
 

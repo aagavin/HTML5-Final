@@ -57,7 +57,7 @@ var scenes;
         Level2.prototype.Update = function () {
             var _this = this;
             // 
-            this._bgImage.x -= 5;
+            this._bgImage.x -= .75;
             console.log(this._bgImage.getBounds.length);
             // update player
             this._player.update();
@@ -81,7 +81,7 @@ var scenes;
         };
         Level2.prototype.checkBounds = function () {
             // if (this._bgImage.x<(-(this._bgImage.getBounds().width-640))) {
-            if (this._bgImage.x < (-2215)) {
+            if (this._bgImage.x < (-2433)) {
                 this._bgImage.x = 0;
             }
         };

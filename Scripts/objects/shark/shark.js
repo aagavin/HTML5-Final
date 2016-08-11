@@ -37,7 +37,7 @@ var objects;
         Shark.prototype._reset = function () {
             this._dx = Math.floor((Math.random() * 5) + 3); // vertical speed
             this._dy = Math.floor((Math.random() * 4) - 2); // horizontal drift
-            this.x = 640 + this.width;
+            this.x = 800 + this.width;
             // get a random y location
             this.y = Math.floor((Math.random() * (480 - (this.height * 0.5))) + (this.height * 0.5));
         };

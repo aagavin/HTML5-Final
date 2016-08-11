@@ -31,8 +31,8 @@ var scenes;
                 _this.addChild(bubble);
             });
             // Add Menu Label
-            this._menuLabel = new objects.Label("Space Shark Attack 3", "60px", "Tahoma, Geneva, sans-serif", "#eee", 400, 140);
-            this.addChild(new objects.Label("Space Shark Attack 3", "60px", "Tahoma, Geneva, sans-serif", "#000", 403, 143));
+            this._menuLabel = new objects.Label("Shark Attack 3: In Space", "60px", "Tahoma, Geneva, sans-serif", "#eee", 400, 140);
+            this.addChild(new objects.Label("Shark Attack 3: In Space", "60px", "Tahoma, Geneva, sans-serif", "#000", 403, 143));
             this.addChild(new objects.Label("The sharks are back but now in space", "30px", "Tahoma, Geneva, sans-serif", "#ff0", 403, 250));
             this.addChild(this._menuLabel);
             // add the start button

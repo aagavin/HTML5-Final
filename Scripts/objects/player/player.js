@@ -37,8 +37,8 @@ var objects;
         Player.prototype._checkBounds = function () {
             // checkbounds to stop player from going outside
             // check right bounds
-            if (this.y >= (480 - (this.height * 0.5))) {
-                this.y = (480 - (this.height * 0.5));
+            if (this.y >= (550 - (this.height * 0.5))) {
+                this.y = (550 - (this.height * 0.5));
             }
             // check left bounds
             if (this.y <= (0 + (this.height * 0.5))) {
@@ -59,8 +59,8 @@ var objects;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
-            this.y = 215;
-            this.x = 30;
+            //this.y = 1000;
+            this.x = this.width * 0.5;
         };
         /**
          * This method updates the object's properties

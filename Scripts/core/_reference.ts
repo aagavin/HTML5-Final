@@ -9,8 +9,6 @@
 
 
 /// <reference path="../objects/scene/scene.ts"/>
-/// <reference path="../objects/ocean/ocean.ts"/>
-/// <reference path="../objects/island/island.ts"/>
 /// <reference path="../objects/player/player.ts"/>
 /// <reference path="../objects/shark/shark.ts"/>
 

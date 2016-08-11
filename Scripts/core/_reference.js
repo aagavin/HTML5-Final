@@ -7,8 +7,6 @@
 /// <reference path="../objects/vector2/vector2.ts" />
 /// <reference path="../objects/gameobject/gameobject.ts" />
 /// <reference path="../objects/scene/scene.ts"/>
-/// <reference path="../objects/ocean/ocean.ts"/>
-/// <reference path="../objects/island/island.ts"/>
 /// <reference path="../objects/player/player.ts"/>
 /// <reference path="../objects/shark/shark.ts"/>
 /// <reference path="../managers/collision.ts" />

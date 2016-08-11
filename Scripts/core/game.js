@@ -33,6 +33,7 @@ var core;
     var assetData = [
         { id: "instructionsBtn", src: "../../Assets/images/instructions.png" },
         { id: "bgPlayImg", src: "../../Assets/images/bg.jpg" },
+        { id: "bgPlayImgL2", src: "../../Assets/images/spaceshipinterior.jpg" },
         { id: "bubble", src: "../../Assets/images/bubble2.png" },
         { id: "diver", src: "../../Assets/images/diver.png" },
         { id: "shark", src: "../../Assets/images/shark.png" },
@@ -102,13 +103,13 @@ var core;
             // Level 2
             case config.Scene.LEVEL2:
                 core.stage.removeAllChildren();
-                level2 = new scenes.Level1();
+                level2 = new scenes.Level2();
                 currentScene = level2;
                 break;
             // Level 3
             case config.Scene.LEVEL3:
                 core.stage.removeAllChildren();
-                level1 = new scenes.Level1();
+                level3 = new scenes.Level3();
                 currentScene = level3;
                 break;
             // Show the GAME OVER Scene

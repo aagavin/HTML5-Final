@@ -2,7 +2,7 @@ module scenes {
 	export class Level1 extends objects.Scene{
 		// Private instance varables
 		private _bgImage:createjs.Bitmap;
-		private _bubbles:Array<objects.Bubble>;
+		// private _bubbles:Array<objects.Bubble>;
 		private _player:objects.Player;
 		private _sharks:Array<objects.Shark>;
 		private _collision: managers.Collision;

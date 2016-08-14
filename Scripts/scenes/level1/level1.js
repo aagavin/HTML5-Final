@@ -7,12 +7,16 @@ var scenes;
 (function (scenes) {
     var Level1 = (function (_super) {
         __extends(Level1, _super);
+        //private _nextLevelBtn: objects.Button;
         /**
          * Creates an instance of Play.
          *
          */
         function Level1() {
             _super.call(this);
+            //private _amfiring:boolean;
+            //private _keyboardControls: objects.KeyboardControls;
+            this._frameCount = 0;
         }
         // Public methods
         /**
@@ -39,6 +43,11 @@ var scenes;
             });
             this._treasure = new objects.Treasure();
             this.addChild(this._treasure);
+            this._bullets = new Array();
+            for (var bullet = 0; bullet < 10; bullet++) {
+                this._bullets.push(new objects.Bullet("bullet"));
+                this.addChild(this._bullets[bullet]);
+            }
             // add score and lives manager
             core.lives = 10;
             core.score = 0;
@@ -54,16 +63,60 @@ var scenes;
             this._themeSound = createjs.Sound.play('theduel');
             this._themeSound.loop = -1;
         };
+        Level1.prototype.Test = function () {
+            console.log("Fire");
+            /*for (var bullet in this._bullets) {
+                    if (!this._bullets[bullet].InFlight) {
+                        this._bullets[bullet].Fire(this._player.position);
+                        break;
+                    }
+                }*/
+            return true;
+        };
         Level1.prototype.Update = function () {
             var _this = this;
+            //this._amfiring = false;
             // 
+            this._frameCount++;
             this._bgImage.x -= .5;
-            // update player
+            this._bullets.forEach(function (bullet) {
+                // update each bullet
+                bullet.update();
+            });
+            // update player	
             this._player.update();
-            // update shark
+            // update shark + player
             this._sharks.forEach(function (shark) {
                 shark.update();
                 _this._collision.check(_this._player, shark);
+            });
+            //update shark + bullet
+            this._sharks.forEach(function (shark) {
+                _this._bullets.forEach(function (bullet) {
+                    _this._collision.check(shark, bullet);
+                });
+            });
+            /*if (this._frameCount % 10 == 0){
+                this.addEventListener('click', function () {
+                    console.log("fire");
+                    for (var bullet in this._bullets) {
+                        if (!this._bullets[bullet].InFlight) {
+                            this._bullets[bullet].Fire(this._player.position);
+                            break;
+                        }
+                    }
+                });
+            }*/
+            this.addEventListener('click', function () {
+                if (this._frameCount % 10 == 0) {
+                    console.log("fire");
+                    for (var bullet in this._bullets) {
+                        if (!this._bullets[bullet].InFlight) {
+                            this._bullets[bullet].Fire(this._player.position);
+                            break;
+                        }
+                    }
+                }
             });
             // update treasure
             this._treasure.update();
@@ -73,10 +126,17 @@ var scenes;
                 core.scene = config.Scene.OVER;
                 core.changeScene();
             }
+            if (core.score > 500) {
+                this._themeSound.stop();
+                core.scene = config.Scene.LEVEL2;
+                core.changeScene();
+            }
             // update score and lives
             this._livesLbl.text = "Lives: " + core.lives;
             this._scoreLbl.text = "Score: " + core.score;
             this.checkBounds();
+        };
+        Level1.prototype._nextLevelBtnClick = function (event) {
         };
         Level1.prototype.checkBounds = function () {
             // if (this._bgImage.x<(-(this._bgImage.getBounds().width-640))) {

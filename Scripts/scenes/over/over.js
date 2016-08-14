@@ -22,12 +22,12 @@ var scenes;
             this.addChild(this._bgImg);
             this._gameoversound = createjs.Sound.play('gameover');
             // Add Menu Label
-            this._gameOverLabel = new objects.Label("Too many shark bites", "bold 45px", "Consolas", "#ee0", 320, 100);
+            this._gameOverLabel = new objects.Label("Too many shark bites", "bold 45px", "Consolas", "#ee0", 400, 100);
             this.addChild(this._gameOverLabel);
             // add the start button
-            this._restartButton = new objects.Button("playagain", 200, 400, true);
+            this._restartButton = new objects.Button("playagain", 250, 400, true);
             this.addChild(this._restartButton);
-            this._menuButton = new objects.Button("menu", 450, 400, true);
+            this._menuButton = new objects.Button("menu", 600, 400, true);
             this.addChild(this._menuButton);
             /**
              * Score
@@ -35,8 +35,8 @@ var scenes;
             if (core.score > core.highScore) {
                 core.highScore = core.score;
             }
-            this.addChild(new objects.Label('Score: ' + core.score, '35px', 'Tahoma, Geneva, sans-serif', '#ddd', 150, 200));
-            this.addChild(new objects.Label('High Score: ' + core.highScore, '35px', 'Tahoma, Geneva, sans-serif', '#ddd', 450, 200));
+            this.addChild(new objects.Label('Score: ' + core.score, '35px', 'Tahoma, Geneva, sans-serif', '#ddd', 250, 200));
+            this.addChild(new objects.Label('High Score: ' + core.highScore, '35px', 'Tahoma, Geneva, sans-serif', '#ddd', 600, 200));
             // Start button event listener
             this._restartButton.on("click", this._restartButtonClick, this);
             this._menuButton.on('click', this._menuButtonClick, this);

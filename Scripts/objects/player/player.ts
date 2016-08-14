@@ -38,8 +38,8 @@ module objects {
             // checkbounds to stop player from going outside
 
             // check right bounds
-            if(this.y >= (480 - (this.height * 0.5))) {
-                this.y = (480 - (this.height * 0.5));
+            if(this.y >= (550 - (this.height * 0.5))) {
+                this.y = (550 - (this.height * 0.5));
             }
 
             // check left bounds
@@ -58,13 +58,14 @@ module objects {
          * @method start
          * @returns {void}
          */
+        
         public start():void {
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
-            this.y = 215;
-            this.x=30;
+            //this.y = 1000;
+            this.x = this.width * 0.5;
         }
 
         /**

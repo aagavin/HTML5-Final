@@ -9,10 +9,8 @@ module objects {
      */
     export class Star extends objects.GameObject {
          // PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++
-
-
-        // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++
-
+				 private _playerLoction:Vector2;
+				 private _bossLocation:Vector2;
 
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++
         /**
@@ -50,15 +48,27 @@ module objects {
          */
         
         public start():void {
+					this.rotation+=5;
         }
 
+
+				/**
+				 * This sets the players location
+				 * 
+				 * @public
+				 * @param {Vector2} player Location
+				 */
+				public setLoc(playerLocation:Vector2, bossLocation:Vector2):void{
+					this._playerLoction=playerLocation;
+					this._bossLocation=bossLocation;
+				}
+
         /**
-         * This method updates the object's properties
-         * every time it's called
-         * 
-         * @public 
-         * @method update
-         * @returns {void}
+         * This method updates the objects properties every time it's called
+				 * 
+         * @public
+         * @param {Vector2} playerLoc
+				 * @returns {void}
          */
         public update():void {
             // // player to follow mouse

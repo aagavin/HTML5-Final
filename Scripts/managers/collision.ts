@@ -19,10 +19,7 @@ module managers{
 			
 			if (objects.Vector2.distance(prime.position, other.position) < (prime.halfHeight+other.halfHeight)){
 				if (!other.isColliding) {
-					other.isColliding=true;
-
-					console.log(other.name);
-					
+					other.isColliding=true;					
 
 					if (other.name==='shark') {
 						createjs.Sound.play('comic-bite');

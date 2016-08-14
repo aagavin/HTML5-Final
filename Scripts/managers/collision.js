@@ -12,7 +12,6 @@ var managers;
             if (objects.Vector2.distance(prime.position, other.position) < (prime.halfHeight + other.halfHeight)) {
                 if (!other.isColliding) {
                     other.isColliding = true;
-                    console.log(other.name);
                     if (other.name === 'shark') {
                         createjs.Sound.play('comic-bite');
                         core.lives -= 1;

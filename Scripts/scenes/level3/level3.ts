@@ -7,7 +7,7 @@ module scenes{
 	 * @extends {objects.Scene}
 	 */
 	export class Level3 extends objects.Scene{
-		//***************** private  varables *****************// 
+		//***************** PRIVATE INSTANCE VARIABLES *****************// 
 
 		private _bgImage:createjs.Bitmap;
 		private _player:objects.Player;
@@ -16,6 +16,7 @@ module scenes{
 		private _finalBoss:objects.FinalBoss;
 		private _textShadow:createjs.Shadow;
 		private _collision:managers.Collision;
+		private _star:objects.Star;
 
 
 		/**
@@ -34,6 +35,7 @@ module scenes{
 		 * @returns voids
 		 */
 		public Start():void{
+			// drop shadow
 			this._textShadow=new createjs.Shadow("#000", 0, 0, 3);
 
 
@@ -46,6 +48,9 @@ module scenes{
 			this._finalBoss = new objects.FinalBoss('finalBoss');
 			this.addChild(this._finalBoss);
 
+			this._star = new objects.Star('');
+			
+
 			this._lblScore = new objects.Label('Score: '+core.score,'35px', "Tahoma, Geneva, sans-serif","#fff",150,45);
 			this._lblScore.shadow=this._textShadow
 			this.addChild(this._lblScore);
@@ -53,7 +58,6 @@ module scenes{
 			this._lblLives = new objects.Label('Lives: '+core.lives, '34px',"Tahoma, Geneva, sans-serif","#fff",700,45);
 			this._lblLives.shadow=this._textShadow;
 			this.addChild(this._lblLives);
-
 
 			// Collision manager
 			this._collision=new managers.Collision();
@@ -81,6 +85,8 @@ module scenes{
 
 			// lives lbl
 			this._lblLives.text='Lives: '+core.lives;
+
+			// 
 
 
 			this.checkBounds();

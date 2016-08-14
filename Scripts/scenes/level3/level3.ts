@@ -12,6 +12,7 @@ module scenes{
 		private _lblScore:objects.Label;
 		private _lblLives:objects.Label;
 		private _finalBoss:objects.FinalBoss;
+		private _textShadow:createjs.Shadow;
 
 		/**
 		 * Creates an instance of Level3.
@@ -29,6 +30,8 @@ module scenes{
 		 * @returns voids
 		 */
 		public Start():void{
+			this._textShadow=new createjs.Shadow("#000", 0, 0, 3);
+
 
 			this._bgImage = new createjs.Bitmap(core.assets.getResult('bgPlayImgL2'));
 			this.addChild(this._bgImage);
@@ -40,9 +43,11 @@ module scenes{
 			this.addChild(this._finalBoss);
 
 			this._lblScore = new objects.Label('Score: '+core.score,'35px', "Tahoma, Geneva, sans-serif","#fff",150,45);
+			this._lblScore.shadow=this._textShadow
 			this.addChild(this._lblScore);
 
 			this._lblLives = new objects.Label('Lives: '+core.lives, '34px',"Tahoma, Geneva, sans-serif","#fff",700,45);
+			this._lblLives.shadow=this._textShadow;
 			this.addChild(this._lblLives);
 
 			core.stage.addChild(this);

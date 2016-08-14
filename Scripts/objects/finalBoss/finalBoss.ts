@@ -38,7 +38,7 @@ module objects{
 			}
 
 			// right wall
-			if((this.x) > (config.Screen.WIDTH)){
+			if((this.x+this.width) > (config.Screen.WIDTH)){
 				this._dx=(-1)*this._dx;
 			}
 

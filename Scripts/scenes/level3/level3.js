@@ -28,6 +28,7 @@ var scenes;
          * @returns voids
          */
         Level3.prototype.Start = function () {
+            this._textShadow = new createjs.Shadow("#000", 0, 0, 3);
             this._bgImage = new createjs.Bitmap(core.assets.getResult('bgPlayImgL2'));
             this.addChild(this._bgImage);
             this._player = new objects.Player('player_level3');
@@ -35,8 +36,10 @@ var scenes;
             this._finalBoss = new objects.FinalBoss('finalBoss');
             this.addChild(this._finalBoss);
             this._lblScore = new objects.Label('Score: ' + core.score, '35px', "Tahoma, Geneva, sans-serif", "#fff", 150, 45);
+            this._lblScore.shadow = this._textShadow;
             this.addChild(this._lblScore);
             this._lblLives = new objects.Label('Lives: ' + core.lives, '34px', "Tahoma, Geneva, sans-serif", "#fff", 700, 45);
+            this._lblLives.shadow = this._textShadow;
             this.addChild(this._lblLives);
             core.stage.addChild(this);
         };

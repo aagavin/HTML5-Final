@@ -10,6 +10,8 @@ module scenes{
 		private _bgImage:createjs.Bitmap;
 		private _player:objects.Player;
 		private _lblScore:objects.Label;
+		private _lblLives:objects.Label;
+		private _finalBoss:objects.FinalBoss;
 
 		/**
 		 * Creates an instance of Level3.
@@ -32,10 +34,16 @@ module scenes{
 			this.addChild(this._bgImage);
 
 			this._player = new objects.Player('player_level3');
+			this.addChild(this._player);			
+
+			this._finalBoss = new objects.FinalBoss('finalBoss');
+			this.addChild(this._finalBoss);
+
+			this._lblScore = new objects.Label('Score: '+core.score,'35px', "Tahoma, Geneva, sans-serif","#fff",150,45);
 			this.addChild(this._lblScore);
 
-			this._lblScore = new objects.Label('Score'+core.score,'35px', "Tahoma, Geneva, sans-serif","#fff",150,45);
-			this.addChild(this._player);
+			this._lblLives = new objects.Label('Lives: '+core.lives, '34px',"Tahoma, Geneva, sans-serif","#fff",700,45);
+			this.addChild(this._lblLives);
 
 			core.stage.addChild(this);
 		}
@@ -51,7 +59,9 @@ module scenes{
 
 			// update player
 			this._player.update();			
-			// console.log(this._player.y);
+			
+			// update final boss
+			this._finalBoss.update();
 			
 
 			this.checkBounds();
@@ -69,6 +79,7 @@ module scenes{
 			if (this._bgImage.x<(-2433)) {
 				this._bgImage.x=0;
 			}
+
 		}
 
 	}

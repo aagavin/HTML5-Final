@@ -8,6 +8,7 @@
 /// <reference path="../objects/bubbles/bubble.ts" />
 /// <reference path="../objects/vector2/vector2.ts" />
 /// <reference path="../objects/gameobject/gameobject.ts" />
+/// <reference path="../objects/star/star.ts" />
 
 
 /// <reference path="../objects/scene/scene.ts"/>

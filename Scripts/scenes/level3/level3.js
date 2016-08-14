@@ -36,13 +36,14 @@ var scenes;
             this.addChild(this._player);
             this._finalBoss = new objects.FinalBoss('finalBoss');
             this.addChild(this._finalBoss);
-            this._star = new objects.Star('');
             this._lblScore = new objects.Label('Score: ' + core.score, '35px', "Tahoma, Geneva, sans-serif", "#fff", 150, 45);
             this._lblScore.shadow = this._textShadow;
             this.addChild(this._lblScore);
             this._lblLives = new objects.Label('Lives: ' + core.lives, '34px', "Tahoma, Geneva, sans-serif", "#fff", 700, 45);
             this._lblLives.shadow = this._textShadow;
             this.addChild(this._lblLives);
+            this._star = new objects.Star('star');
+            this.addChild(this._star);
             // Collision manager
             this._collision = new managers.Collision();
             core.stage.addChild(this);
@@ -63,7 +64,8 @@ var scenes;
             this._collision.check(this._player, this._finalBoss);
             // lives lbl
             this._lblLives.text = 'Lives: ' + core.lives;
-            // 
+            // update star
+            this._star.update();
             this.checkBounds();
         };
         //***************** private methods *****************//

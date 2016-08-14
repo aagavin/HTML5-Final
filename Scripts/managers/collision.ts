@@ -19,7 +19,7 @@ module managers{
 			
 			if (objects.Vector2.distance(prime.position, other.position) < (prime.halfHeight+other.halfHeight)){
 				if (!other.isColliding) {
-					other.isColliding=true;					
+					other.isColliding=true;
 
 					if (other.name==='shark') {
 						createjs.Sound.play('comic-bite');
@@ -38,10 +38,13 @@ module managers{
 						core.score += 10;
 					}
 
-					if (other.name==='finalBoss') {
+					if (other.name==='finalBoss'){core.lives-=1;}
+
+					if (other.name==='star') {
 						core.lives-=1;
 					}
-					
+
+
 				}
 			}
 			else{

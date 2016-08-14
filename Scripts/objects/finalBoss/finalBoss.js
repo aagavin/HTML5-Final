@@ -61,6 +61,7 @@ var objects;
         FinalBoss.prototype.update = function () {
             this.x -= this._dx;
             this.y -= this._dy;
+            this.position = new objects.Vector2(this.x, this.y);
             this._checkBounds();
         };
         return FinalBoss;

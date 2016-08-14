@@ -45,6 +45,7 @@ var core;
         { id: "menu", src: "../../Assets/images/menu.png" },
         { id: "player_level3", src: "../../Assets/images/player_level3.png" },
         { id: "finalBoss", src: "../../Assets/images/finalBoss.png" },
+        { id: "star", src: "../../Assets/images/star.png" },
         { id: "theduel", src: "../../Assets/audio/theduel.ogg" },
         { id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg" },
         { id: "coin", src: "../../Assets/audio/coin.ogg" },

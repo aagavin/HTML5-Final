@@ -29,6 +29,9 @@ var managers;
                     if (other.name === 'finalBoss') {
                         core.lives -= 1;
                     }
+                    if (other.name === 'star') {
+                        core.lives -= 1;
+                    }
                 }
             }
             else {

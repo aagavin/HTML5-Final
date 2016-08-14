@@ -71,6 +71,8 @@ module objects{
 		public update():void{
 			this.x-=this._dx;
 			this.y-=this._dy;
+
+			this.position=new Vector2(this.x, this.y);
 			this._checkBounds();
 		}
 

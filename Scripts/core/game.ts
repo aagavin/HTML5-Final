@@ -57,7 +57,7 @@ namespace core {
 		{ id: "bubble", src: "../../Assets/images/bubble2.png"},
 		{ id: "diver", src: "../../Assets/images/spaceship.png"},
 		{ id: "shark", src: "../../Assets/images/shark.png"},
-   		{ id: "startBtn", src: "../../Assets/images/startBtn.png"},
+   	{ id: "startBtn", src: "../../Assets/images/startBtn.png"},
 		{ id: "treasure", src: "../../Assets/images/treasure.png"},
 		{ id: "bullet", src: "../../Assets/images/bullet.png"},
 		//{ id: "nextLevelBtn", src: "../../Assets/images/nextlevel.png"},
@@ -65,6 +65,7 @@ namespace core {
 		{ id: "menu", src: "../../Assets/images/menu.png"},
 		{ id: "player_level3", src: "../../Assets/images/player_level3.png"},
 		{ id: "finalBoss", src: "../../Assets/images/finalBoss.png"},
+		{ id: "star", src: "../../Assets/images/star.png"},
 
 		{ id: "theduel", src: "../../Assets/audio/theduel.ogg"},
 		{ id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg"},

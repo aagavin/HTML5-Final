@@ -61,6 +61,8 @@ namespace core {
 		{ id: "treasure", src: "../../Assets/images/treasure.png"},
 		{ id: "playagain", src: "../../Assets/images/playagain.png"},
 		{ id: "menu", src: "../../Assets/images/menu.png"},
+		{ id: "player_level3", src: "../../Assets/images/player_level3.png"},
+		{ id: "finalBoss", src: "../../Assets/images/finalBoss.png"},
 
 		{ id: "theduel", src: "../../Assets/audio/theduel.ogg"},
 		{ id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg"},
@@ -93,7 +95,9 @@ namespace core {
 		stage.enableMouseOver(20);
 
 		// setup the default scene
-		scene = config.Scene.MENU;
+		// scene = config.Scene.MENU;
+		scene = config.Scene.LEVEL3;
+		// scene=config.Scene.LEVEL2;
 		changeScene();
 
 		createjs.Ticker.framerate = 60;

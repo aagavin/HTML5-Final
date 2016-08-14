@@ -74,7 +74,7 @@ module objects {
 		 */
 		constructor(imageString:string) {
 			super(core.assets.getResult(imageString))
-			
+
 			this._initialize(imageString);
 
 			this.start();

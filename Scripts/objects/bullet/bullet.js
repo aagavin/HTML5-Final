@@ -79,7 +79,7 @@ var objects;
             this.y = newPosition.y;
             this.position = newPosition;
             this.InFlight = true;
-            createjs.Sound.play("bulletFire");
+            createjs.Sound.play("laser");
         };
         Bullet.prototype.start = function () {
             this._defaultPosition = new objects.Vector2(1000, 1000);

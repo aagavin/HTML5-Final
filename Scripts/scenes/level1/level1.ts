@@ -67,7 +67,7 @@ module scenes {
 			core.score=0;
 			this._livesLbl=new objects.Label("Lives: "+core.lives,"35px","Tahoma, Geneva, sans-serif","#ff0",100,45);
 			this.addChild(this._livesLbl);
-			this._scoreLbl=new objects.Label("Score: "+core.score, "35px","Tahoma, Geneva, sans-serif", "#ff0",520,45);
+			this._scoreLbl=new objects.Label("Score: "+core.score, "35px","Tahoma, Geneva, sans-serif", "#ff0",700,45);
 			this.addChild(this._scoreLbl);
 
 			// add a collision managers
@@ -76,7 +76,7 @@ module scenes {
 			// add scene to stage
 			core.stage.addChild(this);
 			// start sound
-			this._themeSound=createjs.Sound.play('theduel');
+			this._themeSound=createjs.Sound.play('shipEngine');
 			this._themeSound.loop=-1;
 
 		}
@@ -119,6 +119,8 @@ module scenes {
 				});
 			});
 
+
+			//This is the TEST code, it does not work
 			/*if (this._frameCount % 10 == 0){
 				this.addEventListener('click', function () {
 					console.log("fire");
@@ -142,6 +144,13 @@ module scenes {
 					}
             }})
 
+			if (this._frameCount % 10 == 0) {
+					for (var bullet in this._bullets) {
+						if (!this._bullets[bullet].InFlight) {
+							this._bullets[bullet].Fire(this._player.position);
+							break;
+						}
+					}
 
 			// update treasure
 			this._treasure.update();
@@ -153,12 +162,13 @@ module scenes {
 				core.changeScene();
 			}
 
-			if (core.score > 500){
+			if (core.score > 290){
 				this._themeSound.stop();
 				core.scene = config.Scene.LEVEL2;
 				core.changeScene();
 				//Fix this later if it can be fixed
 				//Remove the player, sharks, treasure, background.dx = 0, add button and on button click switch scenes
+				//This might need to be in a new scene.
 				/*this._nextLevelBtn = new objects.Button("nextLevelBtn", 300, 400, true);
 				this.addChild(this._nextLevelBtn);
 				this._nextLevelBtn.on('click', this._nextLevelBtnClick, this);*/
@@ -175,7 +185,6 @@ module scenes {
 			this.checkBounds();
 		}
 
-		private _nextLevelBtnClick(event:createjs.MouseEvent):void {
 			
 		}
 

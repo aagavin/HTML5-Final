@@ -16,7 +16,7 @@ module scenes{
 		private _finalBoss:objects.FinalBoss;
 		private _textShadow:createjs.Shadow;
 		private _collision:managers.Collision;
-		private _star:objects.Star;
+		private _stars:Array<objects.Star>;
 
 
 		/**
@@ -56,8 +56,13 @@ module scenes{
 			this._lblLives.shadow=this._textShadow;
 			this.addChild(this._lblLives);
 
-			this._star = new objects.Star('star');
-			this.addChild(this._star);
+			this._stars=new Array<objects.Star>();
+			
+			for (let i = 0; i < 5; i++) {
+				let star = new objects.Star('star');
+				this._stars.push(star);
+				this.addChild(star);				
+			}
 
 			// Collision manager
 			this._collision=new managers.Collision();
@@ -80,15 +85,18 @@ module scenes{
 			// update final boss
 			this._finalBoss.update();
 
-			// Collision check between player and boss
-			this._collision.check(this._player,this._finalBoss);		
-
 			// lives lbl
 			this._lblLives.text='Lives: '+core.lives;
 
 			// update star
-			this._star.update();
+			this._stars.forEach(star => {
+				star.update();
+				this._collision.check(this._player,star);
+			});
 
+			// Collision check between player and boss
+			this._collision.check(this._player,this._finalBoss);
+			//this._collision.check(this._player)
 
 			this.checkBounds();
 		}

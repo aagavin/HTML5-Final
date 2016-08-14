@@ -42,8 +42,12 @@ var scenes;
             this._lblLives = new objects.Label('Lives: ' + core.lives, '34px', "Tahoma, Geneva, sans-serif", "#fff", 700, 45);
             this._lblLives.shadow = this._textShadow;
             this.addChild(this._lblLives);
-            this._star = new objects.Star('star');
-            this.addChild(this._star);
+            this._stars = new Array();
+            for (var i = 0; i < 5; i++) {
+                var star = new objects.Star('star');
+                this._stars.push(star);
+                this.addChild(star);
+            }
             // Collision manager
             this._collision = new managers.Collision();
             core.stage.addChild(this);
@@ -54,18 +58,23 @@ var scenes;
          * @returns voids
          */
         Level3.prototype.Update = function () {
+            var _this = this;
             // Update background image
             this._bgImage.x -= 2;
             // update player
             this._player.update();
             // update final boss
             this._finalBoss.update();
-            // Collision check between player and boss
-            this._collision.check(this._player, this._finalBoss);
             // lives lbl
             this._lblLives.text = 'Lives: ' + core.lives;
             // update star
-            this._star.update();
+            this._stars.forEach(function (star) {
+                star.update();
+                _this._collision.check(_this._player, star);
+            });
+            // Collision check between player and boss
+            this._collision.check(this._player, this._finalBoss);
+            //this._collision.check(this._player)
             this.checkBounds();
         };
         //***************** private methods *****************//

@@ -59,9 +59,10 @@ module objects {
          * @method _checkBounds
          * @return {void} 
          */
-        private  _checkBounds():void {
-            if(this.position.y <= -this.height) {
-                this.Reset();
+        private _checkBounds():void {
+            //console.log(this.position.x + ", " + this.width);
+            if(this.position.x >= 900 - this.width) {              
+                this.Reset();  
             }
         }
 
@@ -74,7 +75,7 @@ module objects {
          * @return {void} 
          */
         public Fire(newPosition:Vector2):void {
-            this.x = newPosition.x;
+            this.x = newPosition.x + 60 ;
             this.y = newPosition.y;
             this.position = newPosition;
             this.InFlight = true;
@@ -84,14 +85,14 @@ module objects {
 
         public start():void {
             this._defaultPosition = new Vector2(1000, 1000);
-            this.Speed = 10;
+            this.Speed = -10;
             this.Reset();
         }
 
         public update():void {
             
             if(this.InFlight) {
-                this.y -= this.Speed;
+                this.x -= this.Speed;
             }
             this.position = new Vector2(this.x, this.y);
             this._checkBounds();

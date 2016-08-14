@@ -15,12 +15,14 @@ module managers{
 		}
 
 		public check(prime:objects.GameObject, other:objects.GameObject):void{
+		
 			
-			if (
-					objects.Vector2.distance(prime.position, other.position) < (prime.halfHeight+other.halfHeight)
-				) {
+			if (objects.Vector2.distance(prime.position, other.position) < (prime.halfHeight+other.halfHeight)){
 				if (!other.isColliding) {
 					other.isColliding=true;
+
+					console.log(other.name);
+					
 
 					if (other.name==='shark') {
 						createjs.Sound.play('comic-bite');
@@ -33,11 +35,16 @@ module managers{
 					}
 
 					if(other.name==='bullet'){
-                        createjs.Sound.play("bulletHit");
-                        prime.Reset();
-                        other.Reset();
-                        core.score += 10;
+						createjs.Sound.play("bulletHit");
+						prime.Reset();
+						other.Reset();
+						core.score += 10;
 					}
+
+					if (other.name==='finalBoss') {
+						core.lives-=1;
+					}
+					
 				}
 			}
 			else{

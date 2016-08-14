@@ -7,12 +7,16 @@ module scenes{
 	 * @extends {objects.Scene}
 	 */
 	export class Level3 extends objects.Scene{
+		//***************** private  varables *****************// 
+
 		private _bgImage:createjs.Bitmap;
 		private _player:objects.Player;
 		private _lblScore:objects.Label;
 		private _lblLives:objects.Label;
 		private _finalBoss:objects.FinalBoss;
 		private _textShadow:createjs.Shadow;
+		private _collision:managers.Collision;
+
 
 		/**
 		 * Creates an instance of Level3.
@@ -50,6 +54,10 @@ module scenes{
 			this._lblLives.shadow=this._textShadow;
 			this.addChild(this._lblLives);
 
+
+			// Collision manager
+			this._collision=new managers.Collision();
+
 			core.stage.addChild(this);
 		}
 
@@ -67,7 +75,13 @@ module scenes{
 			
 			// update final boss
 			this._finalBoss.update();
-			
+
+			// Collision check between player and boss
+			this._collision.check(this._player,this._finalBoss);		
+
+			// lives lbl
+			this._lblLives.text='Lives: '+core.lives;
+
 
 			this.checkBounds();
 		}

@@ -41,6 +41,8 @@ var scenes;
             this._lblLives = new objects.Label('Lives: ' + core.lives, '34px', "Tahoma, Geneva, sans-serif", "#fff", 700, 45);
             this._lblLives.shadow = this._textShadow;
             this.addChild(this._lblLives);
+            // Collision manager
+            this._collision = new managers.Collision();
             core.stage.addChild(this);
         };
         /**
@@ -55,6 +57,10 @@ var scenes;
             this._player.update();
             // update final boss
             this._finalBoss.update();
+            // Collision check between player and boss
+            this._collision.check(this._player, this._finalBoss);
+            // lives lbl
+            this._lblLives.text = 'Lives: ' + core.lives;
             this.checkBounds();
         };
         //***************** private methods *****************//

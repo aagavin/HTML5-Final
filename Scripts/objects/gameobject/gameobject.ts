@@ -112,7 +112,10 @@ module objects {
 		 */
 		public update():void {
 				
+		}
 
+		public Reset():void{
+			
 		}
 
 

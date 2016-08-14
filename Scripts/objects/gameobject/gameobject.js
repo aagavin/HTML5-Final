@@ -120,6 +120,8 @@ var objects;
      */
         GameObject.prototype.update = function () {
         };
+        GameObject.prototype.Reset = function () {
+        };
         return GameObject;
     }(createjs.Bitmap));
     objects.GameObject = GameObject;

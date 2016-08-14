@@ -55,12 +55,12 @@ module scenes {
 
 			// add the start button
 			this._startButton = new objects.Button(
-				"startBtn", 150, 400, true
+				"startBtn", 250, 400, true
 			);
 			this.addChild(this._startButton);
 
 			this._instruction= new objects.Button(
-				"instructionsBtn", 475,400,true
+				"instructionsBtn", 600,400,true
 			);
 			this.addChild(this._instruction);
 

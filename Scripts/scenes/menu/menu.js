@@ -36,9 +36,9 @@ var scenes;
             this.addChild(new objects.Label("The sharks are back but now in space", "30px", "Tahoma, Geneva, sans-serif", "#ff0", 403, 250));
             this.addChild(this._menuLabel);
             // add the start button
-            this._startButton = new objects.Button("startBtn", 150, 400, true);
+            this._startButton = new objects.Button("startBtn", 250, 400, true);
             this.addChild(this._startButton);
-            this._instruction = new objects.Button("instructionsBtn", 475, 400, true);
+            this._instruction = new objects.Button("instructionsBtn", 600, 400, true);
             this.addChild(this._instruction);
             // Start button event listener
             this._startButton.on("click", this._startButtonClick, this);

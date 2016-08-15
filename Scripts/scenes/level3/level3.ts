@@ -140,10 +140,12 @@ module scenes{
 			if (core.lives<1) {
 				core.scene=config.Scene.OVER;
 				core.changeScene();
+				this._themeSound.stop();
 			}
 			if(core.bossLives<1){
 				core.scene=config.Scene.WIN;
 				core.changeScene();
+				this._themeSound.stop();
 			}
 
 			this.checkBounds();

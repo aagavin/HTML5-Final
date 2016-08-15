@@ -1,11 +1,13 @@
 /// <reference path="../../typings/index.d.ts"/>
 /// <reference path="../config/scene.ts"/>
+/// <reference path="../config/screen.ts"/>
 /// <reference path="../objects/asset/asset.ts"/>
 /// <reference path="../objects/button/button.ts"/>
 /// <reference path="../objects/label/label.ts"/>
 /// <reference path="../objects/bubbles/bubble.ts" />
 /// <reference path="../objects/vector2/vector2.ts" />
 /// <reference path="../objects/gameobject/gameobject.ts" />
+/// <reference path="../objects/star/star.ts" />
 /// <reference path="../objects/scene/scene.ts"/>
 /// <reference path="../objects/player/player.ts"/>
 /// <reference path="../objects/shark/shark.ts"/>

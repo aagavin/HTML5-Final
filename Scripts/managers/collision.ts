@@ -35,7 +35,7 @@ module managers{
 					}
 
 					if(other.name==='bullet'){
-                        createjs.Sound.play("bulletHit");
+                        createjs.Sound.play("death");
                         prime.Reset();
                         other.Reset();
                         core.score += 10;

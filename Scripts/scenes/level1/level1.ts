@@ -48,6 +48,7 @@ module scenes {
 			// add player to scene
 			this.addChild(this._player);
 			// add shark to scene
+
 			this._sharks.forEach(shark => {
 				this.addChild(shark);
 			});

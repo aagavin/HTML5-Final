@@ -28,7 +28,9 @@ module managers{
 
 					if (other.name==='treasure') {
 						createjs.Sound.play('coin');
-						core.score+=10;
+						if(core.lives < 10){
+							core.lives += 1;
+						}
 					}
 
 					if(other.name==='bullet'){

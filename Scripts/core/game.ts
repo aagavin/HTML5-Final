@@ -61,7 +61,7 @@ namespace core {
    	{ id: "startBtn", src: "../../Assets/images/startBtn.png"},
 		{ id: "treasure", src: "../../Assets/images/treasure.png"},
 		{ id: "bullet", src: "../../Assets/images/bullet.png"},
-		//{ id: "nextLevelBtn", src: "../../Assets/images/nextlevel.png"},
+		{ id: "laser", src: "../../Assets/audio/laser.wav"},
 		{ id: "playagain", src: "../../Assets/images/playagain.png"},
 		{ id: "menu", src: "../../Assets/images/menu.png"},
 		{ id: "player_level3", src: "../../Assets/images/player_level3.png"},
@@ -69,6 +69,8 @@ namespace core {
 		{ id: "star", src: "../../Assets/images/star.png"},
 		{ id: "bulletPlayer", src: "../../Assets/images/bulletPlayer.png"},
 
+
+		{ id: "shipEngine", src: "../../Assets/audio/spaceshipEngineShor.mp3"},
 		{ id: "theduel", src: "../../Assets/audio/theduel.ogg"},
 		{ id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg"},
 		{ id: "coin", src: "../../Assets/audio/coin.ogg"},

@@ -5,7 +5,6 @@ module scenes {
 		private _startButton: objects.Button;
 		private _instruction: objects.Button;
 		private _bgImage:createjs.Bitmap;
-		private _bubbles:Array<objects.Bubble>;
 
 		/**
 		 * Creates an instance of Menu.
@@ -23,24 +22,14 @@ module scenes {
 			this._bgImage = new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
 			this.addChild(this._bgImage);
 
-			// add bubble effect
-			this._bubbles = [
-				new objects.Bubble(false),new objects.Bubble(false),new objects.Bubble(false),
-				new objects.Bubble(false),new objects.Bubble(false),new objects.Bubble(false)
-			];
-			this._bubbles.forEach(bubble => {
-				this.addChild(bubble);
-			});
-
-
 			// Add Menu Label
 			this._menuLabel = new objects.Label(
 				"Shark Attack 3: In Space", "60px","Tahoma, Geneva, sans-serif", "#eee",
-				400, 140
+				config.Screen.HALF_WIDTH, 140
 			);
 			this.addChild(new objects.Label(
 				"Shark Attack 3: In Space", "60px","Tahoma, Geneva, sans-serif", "#000",
-				403, 143
+				config.Screen.HALF_WIDTH+3, 143
 			));
 
 			this.addChild(new objects.Label(
@@ -77,9 +66,6 @@ module scenes {
 		 * scene updates happen here...
 		 */
 		public Update():void {
-			this._bubbles.forEach(bubble => {
-				bubble.update();
-			});
 
 			this._bgImage.x-=.5;
 			this.checkBounds();

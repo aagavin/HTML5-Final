@@ -61,6 +61,13 @@ module objects{
 
 		// PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++
 
+
+		/**
+		 * Init of final boss
+		 * 
+		 * @public
+		 * @returns {void}
+		 */
 		public start():void{
 			this._reset();
 

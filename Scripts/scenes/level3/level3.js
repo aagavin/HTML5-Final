@@ -29,7 +29,7 @@ var scenes;
          */
         Level3.prototype.Start = function () {
             // drop shadow
-            this._textShadow = new createjs.Shadow("#000", 0, 0, 3);
+            this._textShadow = new createjs.Shadow('#000', 0, 0, 3);
             this._bgImage = new createjs.Bitmap(core.assets.getResult('bgPlayImgL2'));
             this.addChild(this._bgImage);
             this._player = new objects.Player('player_level3');
@@ -41,10 +41,10 @@ var scenes;
             }
             this._finalBoss = new objects.FinalBoss('finalBoss');
             this.addChild(this._finalBoss);
-            this._lblBossLives = new objects.Label('Boss Lives: ' + core.bossLives, '35px', "Tahoma, Geneva, sans-serif", "#fff", 150, 45);
+            this._lblBossLives = new objects.Label('Boss Lives: ' + core.bossLives, '35px', "Tahoma, Geneva, sans-serif", "#ff0", 150, 45);
             this._lblBossLives.shadow = this._textShadow;
             this.addChild(this._lblBossLives);
-            this._lblLives = new objects.Label('Your Lives: ' + core.lives, '34px', "Tahoma, Geneva, sans-serif", "#fff", 700, 45);
+            this._lblLives = new objects.Label('Your Lives: ' + core.lives, '34px', "Tahoma, Geneva, sans-serif", "#ff0", 700, 45);
             this._lblLives.shadow = this._textShadow;
             this.addChild(this._lblLives);
             this._stars = new Array();
@@ -106,8 +106,13 @@ var scenes;
             // Collision check between player and boss
             this._collision.check(this._player, this._finalBoss);
             //this._collision.check(this._player)
-            if (core.lives < 1 || core.bossLives < 1) {
+            if (core.lives < 1) {
                 core.scene = config.Scene.OVER;
+                core.changeScene();
+            }
+            if (core.bossLives < 1) {
+                core.scene = config.Scene.WIN;
+                core.changeScene();
             }
             this.checkBounds();
         };

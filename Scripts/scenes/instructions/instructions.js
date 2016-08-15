@@ -27,7 +27,7 @@ var scenes;
             this._bgImg = new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
             this.addChild(this._bgImg);
             // title Label
-            this.addChild(new objects.Label('Instructions', 'bold 45px', 'Tahoma, Geneva, sans-serif', '#fd0', 320, 50));
+            this.addChild(new objects.Label('Instructions', 'bold 45px', 'Tahoma, Geneva, sans-serif', '#fd0', config.Screen.HALF_WIDTH, 50));
             // add diver iamge 
             this._diver = new createjs.Bitmap(core.assets.getResult('diver'));
             this._diver.x = 20;

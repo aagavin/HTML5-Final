@@ -18,21 +18,12 @@ var scenes;
          * Starts the scene
          */
         Menu.prototype.Start = function () {
-            var _this = this;
             // add background image
             this._bgImage = new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
             this.addChild(this._bgImage);
-            // add bubble effect
-            this._bubbles = [
-                new objects.Bubble(false), new objects.Bubble(false), new objects.Bubble(false),
-                new objects.Bubble(false), new objects.Bubble(false), new objects.Bubble(false)
-            ];
-            this._bubbles.forEach(function (bubble) {
-                _this.addChild(bubble);
-            });
             // Add Menu Label
-            this._menuLabel = new objects.Label("Shark Attack 3: In Space", "60px", "Tahoma, Geneva, sans-serif", "#eee", 400, 140);
-            this.addChild(new objects.Label("Shark Attack 3: In Space", "60px", "Tahoma, Geneva, sans-serif", "#000", 403, 143));
+            this._menuLabel = new objects.Label("Shark Attack 3: In Space", "60px", "Tahoma, Geneva, sans-serif", "#eee", config.Screen.HALF_WIDTH, 140);
+            this.addChild(new objects.Label("Shark Attack 3: In Space", "60px", "Tahoma, Geneva, sans-serif", "#000", config.Screen.HALF_WIDTH + 3, 143));
             this.addChild(new objects.Label("The sharks are back but now in space", "30px", "Tahoma, Geneva, sans-serif", "#ff0", 403, 250));
             this.addChild(this._menuLabel);
             // add the start button
@@ -51,9 +42,6 @@ var scenes;
          * scene updates happen here...
          */
         Menu.prototype.Update = function () {
-            this._bubbles.forEach(function (bubble) {
-                bubble.update();
-            });
             this._bgImage.x -= .5;
             this.checkBounds();
         };

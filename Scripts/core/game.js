@@ -31,6 +31,7 @@ var core;
     var level2;
     var level3;
     var instruction;
+    var win;
     // asset manifest for images and sounds
     var assetData = [
         { id: "instructionsBtn", src: "../../Assets/images/instructions.png" },
@@ -84,9 +85,7 @@ var core;
         core.stage = new createjs.Stage(canvas); // instatiate the stage container
         core.stage.enableMouseOver(20);
         // setup the default scene
-        // scene = config.Scene.MENU;
         core.scene = config.Scene.MENU;
-        // scene=config.Scene.LEVEL2;
         changeScene();
         createjs.Ticker.framerate = 60;
         createjs.Ticker.on("tick", gameLoop); // create an event listener for the tick event
@@ -140,6 +139,11 @@ var core;
                 core.stage.removeAllChildren();
                 instruction = new scenes.Instructions();
                 currentScene = instruction;
+                break;
+            case config.Scene.WIN:
+                core.stage.removeAllChildren();
+                win = new scenes.Win();
+                currentScene = win;
                 break;
         }
     }

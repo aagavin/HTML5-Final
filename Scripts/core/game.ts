@@ -59,12 +59,14 @@ namespace core {
 		{ id: "shark", src: "../../Assets/images/shark.png"},
    		{ id: "startBtn", src: "../../Assets/images/startBtn.png"},
 		{ id: "treasure", src: "../../Assets/images/treasure.png"},
+		{ id: "injured", src: "../../Assets/images/injuredEmoji.png"},
 		{ id: "bullet", src: "../../Assets/images/bullet.png"},
 		{ id: "laser", src: "../../Assets/audio/laser.wav"},
 		{ id: "playagain", src: "../../Assets/images/playagain.png"},
 		{ id: "menu", src: "../../Assets/images/menu.png"},
 		{ id: "shipEngine", src: "../../Assets/audio/spaceshipEngineShor.mp3"},
 		{ id: "theduel", src: "../../Assets/audio/theduel.ogg"},
+		{ id: "epic", src: "../../Assets/audio/epic.mp3"},
 		{ id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg"},
 		{ id: "coin", src: "../../Assets/audio/lifeup.wav"},
 		{ id: "death", src: "../../Assets/audio/death.wav"},
@@ -96,7 +98,7 @@ namespace core {
 		stage.enableMouseOver(20);
 
 		// setup the default scene
-		scene = config.Scene.MENU;
+		scene = config.Scene.LEVEL2;
 		changeScene();
 
 		createjs.Ticker.framerate = 60;

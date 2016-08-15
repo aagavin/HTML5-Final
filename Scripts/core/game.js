@@ -19,6 +19,7 @@ var core;
     // Score and lives
     core.score = 0;
     core.lives = 0;
+    core.bossLives = 10;
     core.highScore = 0;
     var startButton; // reference to our button class
     // declare scene variables
@@ -46,6 +47,7 @@ var core;
         { id: "player_level3", src: "../../Assets/images/player_level3.png" },
         { id: "finalBoss", src: "../../Assets/images/finalBoss.png" },
         { id: "star", src: "../../Assets/images/star.png" },
+        { id: "bulletPlayer", src: "../../Assets/images/bulletPlayer.png" },
         { id: "theduel", src: "../../Assets/audio/theduel.ogg" },
         { id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg" },
         { id: "coin", src: "../../Assets/audio/coin.ogg" },

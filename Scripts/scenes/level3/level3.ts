@@ -17,7 +17,7 @@ module scenes{
 		private _textShadow:createjs.Shadow;
 		private _collision:managers.Collision;
 		private _stars:Array<objects.Star>;
-		private _bossLives:number;
+		private _bullets:objects.Bullet[];
 
 
 		/**
@@ -44,13 +44,18 @@ module scenes{
 			this.addChild(this._bgImage);
 
 			this._player = new objects.Player('player_level3');
-			this.addChild(this._player);			
+			this.addChild(this._player);
+
+			this._bullets=new Array<objects.Bullet>();
+			for (var bullet = 0; bullet < 5; bullet++) {
+				this._bullets.push(new objects.Bullet('bulletPlayer'));
+				this.addChild(this._bullets[bullet]);
+			}
 
 			this._finalBoss = new objects.FinalBoss('finalBoss');
 			this.addChild(this._finalBoss);
 
-			this._bossLives=10;
-			this._lblBossLives = new objects.Label('Boss Lives: '+this._bossLives,'35px', "Tahoma, Geneva, sans-serif","#fff",150,45);
+			this._lblBossLives = new objects.Label('Boss Lives: '+core.bossLives,'35px', "Tahoma, Geneva, sans-serif","#fff",150,45);
 			this._lblBossLives.shadow=this._textShadow
 			this.addChild(this._lblBossLives);
 
@@ -90,7 +95,7 @@ module scenes{
 			// lives lbl
 			this._lblLives.text='Lives: '+core.lives;
 			// boss lives lbl
-			this._lblBossLives.text='Boss Lives: '+this._bossLives;
+			this._lblBossLives.text='Boss Lives: '+core.bossLives;
 
 			// update star
 			this._stars.forEach(star => {

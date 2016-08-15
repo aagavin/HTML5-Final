@@ -29,6 +29,7 @@ namespace core {
 	// Score and lives
 	export let score:number = 0;
 	export let lives:number = 0;
+	export let bossLives:number =10;
 	export let highScore:number = 0;
 
  
@@ -66,6 +67,7 @@ namespace core {
 		{ id: "player_level3", src: "../../Assets/images/player_level3.png"},
 		{ id: "finalBoss", src: "../../Assets/images/finalBoss.png"},
 		{ id: "star", src: "../../Assets/images/star.png"},
+		{ id: "bulletPlayer", src: "../../Assets/images/bulletPlayer.png"},
 
 		{ id: "theduel", src: "../../Assets/audio/theduel.ogg"},
 		{ id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg"},

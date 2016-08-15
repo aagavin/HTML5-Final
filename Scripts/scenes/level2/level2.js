@@ -32,9 +32,6 @@ var scenes;
             ];
             // add objects to scent
             this.addChild(this._bgImage);
-            // this._bubbles.forEach(bubble => {
-            // 	this.addChild(bubble);
-            // });
             // add player to scene
             this.addChild(this._player);
             // add shark to scene
@@ -48,9 +45,6 @@ var scenes;
                 this._bullets.push(new objects.Bullet("bulletPlayer"));
                 this.addChild(this._bullets[bullet]);
             }
-            // add score and lives manager
-            //core.lives=10;
-            //core.score=0;
             this._livesLbl = new objects.Label("Lives: " + core.lives, "35px", "Tahoma, Geneva, sans-serif", "#ff0", 100, 45);
             this.addChild(this._livesLbl);
             this._scoreLbl = new objects.Label("Score: " + core.score, "35px", "Tahoma, Geneva, sans-serif", "#ff0", 700, 45);
@@ -76,12 +70,6 @@ var scenes;
         };
         Level2.prototype.Test = function () {
             console.log("Fire");
-            /*for (var bullet in this._bullets) {
-                    if (!this._bullets[bullet].InFlight) {
-                        this._bullets[bullet].Fire(this._player.position);
-                        break;
-                    }
-                }*/
             return true;
         };
         Level2.prototype.Update = function () {
@@ -107,36 +95,6 @@ var scenes;
                     _this._collision.check(shark, bullet);
                 });
             });
-            //This is the TEST code, it does not work
-            /*if (this._frameCount % 10 == 0){
-                this.addEventListener('click', function () {
-                    console.log("fire");
-                    for (var bullet in this._bullets) {
-                        if (!this._bullets[bullet].InFlight) {
-                            this._bullets[bullet].Fire(this._player.position);
-                            break;
-                        }
-                    }
-                });
-            }*/
-            // this.addEventListener('click', function(){			
-            // 	if (this._frameCount % 10 == 0) {
-            // 		console.log("fire");
-            // 		for (var bullet in this._bullets) {
-            // 			if (!this._bullets[bullet].InFlight) {
-            // 				this._bullets[bullet].Fire(this._player.position);
-            // 				break;
-            // 			}
-            // 		}
-            //       }})
-            // if (this._frameCount % 10 == 0) {
-            // 		for (var bullet in this._bullets) {
-            // 			if (!this._bullets[bullet].InFlight) {
-            // 				this._bullets[bullet].Fire(this._player.position);
-            // 				break;
-            // 			}
-            // 		}
-            // }
             // update treasure
             this._treasure.update();
             this._collision.check(this._player, this._treasure);

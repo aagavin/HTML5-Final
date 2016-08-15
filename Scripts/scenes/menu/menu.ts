@@ -4,6 +4,7 @@ module scenes {
 		private _menuLabel: objects.Label;
 		private _startButton: objects.Button;
 		private _instruction: objects.Button;
+		private _exitButton: objects.Button;
 		private _bgImage:createjs.Bitmap;
 
 		/**
@@ -27,14 +28,11 @@ module scenes {
 				"Shark Attack 3: In Space", "60px","Tahoma, Geneva, sans-serif", "#eee",
 				config.Screen.HALF_WIDTH, 140
 			);
-			this.addChild(new objects.Label(
-				"Shark Attack 3: In Space", "60px","Tahoma, Geneva, sans-serif", "#000",
-				config.Screen.HALF_WIDTH+3, 143
-			));
+			this._menuLabel.shadow=new createjs.Shadow("#fff", 0,0,15);
 
 			this.addChild(new objects.Label(
 				"The sharks are back but now in space", "30px","Tahoma, Geneva, sans-serif", "#ff0",
-				403, 250
+				config.Screen.HALF_WIDTH, 250
 			));
 
 			
@@ -53,10 +51,16 @@ module scenes {
 			);
 			this.addChild(this._instruction);
 
+			// end Button
+			this._exitButton = new objects.Button("exitButton", config.Screen.HALF_WIDTH, config.Screen.HEIGHT-35,true);
+			this.addChild(this._exitButton);
+
 			// Start button event listener
-			this._startButton.on("click", this._startButtonClick, this);
+			this._startButton.on('click', this._startButtonClick, this);
 			// instructions button even listener
 			this._instruction.on('click', this._instructionButtonClick, this);
+			// End button event listener
+			this._exitButton.on('click', this._endButtonClick,this);
 
 			// add this scene to the global scene container
 			core.stage.addChild(this);
@@ -83,6 +87,11 @@ module scenes {
 		private _startButtonClick(event:createjs.MouseEvent):void {
 			// Switch the scene
 			core.scene = config.Scene.LEVEL1;
+			core.changeScene();
+		}
+
+		private _endButtonClick(event:createjs.MouseEvent):void{
+			core.scene = config.Scene.WIN;
 			core.changeScene();
 		}
 

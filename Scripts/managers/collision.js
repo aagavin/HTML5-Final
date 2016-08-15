@@ -23,11 +23,38 @@ var managers;
                             core.lives += 1;
                         }
                     }
-                    if (other.name === 'bullet') {
+                    if (other.name === 'bullet' || other.name === 'bulletPlayer') {
                         createjs.Sound.play("death");
                         prime.Reset();
                         other.Reset();
                         core.score += 10;
+                    }
+                    if (other.name === 'finalBoss') {
+                        core.lives -= 1;
+                    }
+                    // 
+                    if (other.name === 'star') {
+                        core.lives -= 1;
+                        other.Reset();
+                    }
+                    if (other.name === 'injured') {
+                        createjs.Sound.play("thanks");
+                        prime.Reset();
+                        other.Reset();
+                        core.score += 10;
+                        core.peopleSaved += 1;
+                        console.log(core.peopleSaved);
+                    }
+                    // bulletPlayer
+                    if (prime.name === 'star' && other.name === 'bulletPlayer') {
+                        prime.Reset();
+                        other.Reset();
+                    }
+                    // boss and bullet
+                    if (prime.name === 'finalBoss' && other.name === 'bulletPlayer') {
+                        core.bossLives -= 1;
+                        other.Reset();
+                        createjs.Sound.play('death');
                     }
                 }
             }

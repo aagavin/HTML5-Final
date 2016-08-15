@@ -29,7 +29,9 @@ namespace core {
 	// Score and lives
 	export let score:number = 0;
 	export let lives:number = 0;
+	export let bossLives:number =10;
 	export let highScore:number = 0;
+	export let peopleSaved:number = 0;
 
  
 
@@ -56,19 +58,31 @@ namespace core {
 		{ id: "bgPlayImgL2", src: "../../Assets/images/spaceshipinterior.jpg"},
 		{ id: "bubble", src: "../../Assets/images/bubble2.png"},
 		{ id: "diver", src: "../../Assets/images/spaceship.png"},
+		{ id: "player_level3", src: "../../Assets/images/player_level3.png"},
 		{ id: "shark", src: "../../Assets/images/shark.png"},
-   		{ id: "startBtn", src: "../../Assets/images/startBtn.png"},
+   	{ id: "startBtn", src: "../../Assets/images/startBtn.png"},
 		{ id: "treasure", src: "../../Assets/images/treasure.png"},
+		{ id: "injured", src: "../../Assets/images/injuredEmoji.png"},
 		{ id: "bullet", src: "../../Assets/images/bullet.png"},
+		{ id: "bulletPlayer", src: "../../Assets/images/bulletPlayer.png"},
 		{ id: "laser", src: "../../Assets/audio/laser.wav"},
 		{ id: "playagain", src: "../../Assets/images/playagain.png"},
 		{ id: "menu", src: "../../Assets/images/menu.png"},
+		{ id: "player_level3", src: "../../Assets/images/player_level3.png"},
+		{ id: "finalBoss", src: "../../Assets/images/finalBoss.png"},
+		{ id: "star", src: "../../Assets/images/star.png"},
+		{ id: "bulletPlayer", src: "../../Assets/images/bulletPlayer.gif"},
+
+
 		{ id: "shipEngine", src: "../../Assets/audio/spaceshipEngineShor.mp3"},
+		{ id: "thanks", src: "../../Assets/audio/thankyou.mp3"},
 		{ id: "theduel", src: "../../Assets/audio/theduel.ogg"},
+		{ id: "epic", src: "../../Assets/audio/epic.mp3"},
 		{ id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg"},
 		{ id: "coin", src: "../../Assets/audio/lifeup.wav"},
 		{ id: "death", src: "../../Assets/audio/death.wav"},
-		{ id: "gameover", src: "../../Assets/audio/gameover.ogg"}
+		{ id: "gameover", src: "../../Assets/audio/gameover.ogg"},
+		{ id: "level3_music", src: "../../Assets/audio/level3_music.ogg"}
 	];
 
 	/**
@@ -96,7 +110,9 @@ namespace core {
 		stage.enableMouseOver(20);
 
 		// setup the default scene
+		// scene = config.Scene.MENU;
 		scene = config.Scene.MENU;
+		// scene=config.Scene.LEVEL2;
 		changeScene();
 
 		createjs.Ticker.framerate = 60;

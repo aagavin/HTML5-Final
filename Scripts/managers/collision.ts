@@ -38,6 +38,12 @@ module managers{
 						prime.Reset();
 						other.Reset();
 						core.score += 10;
+
+						createjs.Sound.play("death");
+						prime.Reset();
+						other.Reset();
+						core.score += 10;
+
 					}
 
 					if (other.name==='finalBoss'){core.lives-=1;}

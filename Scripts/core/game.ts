@@ -73,7 +73,8 @@ namespace core {
 		{ id: "shipEngine", src: "../../Assets/audio/spaceshipEngineShor.mp3"},
 		{ id: "theduel", src: "../../Assets/audio/theduel.ogg"},
 		{ id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg"},
-		{ id: "coin", src: "../../Assets/audio/coin.ogg"},
+		{ id: "coin", src: "../../Assets/audio/lifeup.wav"},
+		{ id: "death", src: "../../Assets/audio/death.wav"},
 		{ id: "gameover", src: "../../Assets/audio/gameover.ogg"}
 	];
 

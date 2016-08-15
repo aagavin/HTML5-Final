@@ -11,6 +11,7 @@ module objects {
 		// PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++
 		private _dx:number;
 		private _dy:number;
+		private _spinNumber:number;
 
 		// CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++
 		/**
@@ -36,11 +37,19 @@ module objects {
 			if((this.x+this.halfWidth)<0){
 				this._reset();
 			}
+
+			if (this.y<(this.halfHeight)) {
+				this._dy=(-1)*this._dy;
+			}
+
+			if(this.y>config.Screen.HEIGHT){
+				this._dy=(-1)*this._dy;
+			}
 		}
 
 		private _reset():void {
-			this._dx=Math.floor(Math.random() * (6 - 1)) + 1;
-			this._dy=Math.floor(Math.random() * (6 - 1)) + 1;
+			this._dx=Math.floor(Math.random() * (7 - 2)) + 2;
+			this._dy=Math.floor(Math.random() * (7 - 2)) + 2;
 
 			this.x = config.Screen.WIDTH+this.width;
 			this.y = Math.floor(Math.random() * (config.Screen.HEIGHT - 15)) + 15;
@@ -65,11 +74,8 @@ module objects {
 			this.regX = this.width * 0.5;
 			this.regY = this.height * 0.5;
 			
-			this.rotation = 5;
-
+			this._spinNumber=Math.floor(Math.random() * (15 - 5)) + 5;
 			this._reset()
-
-
 		}
 
 		/**
@@ -81,9 +87,11 @@ module objects {
 		 */
 		public update(): void {
 			this.x -= this._dx;
+			this.y -= this._dy;
 			
 			this.position=new objects.Vector2(this.x,this.y);
 
+			this.rotation += this._spinNumber;
 			// this.y=core.stage.mouseY;
 			this._checkBounds();
 		}

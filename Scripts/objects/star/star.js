@@ -36,10 +36,16 @@ var objects;
             if ((this.x + this.halfWidth) < 0) {
                 this._reset();
             }
+            if (this.y < (this.halfHeight)) {
+                this._dy = (-1) * this._dy;
+            }
+            if (this.y > config.Screen.HEIGHT) {
+                this._dy = (-1) * this._dy;
+            }
         };
         Star.prototype._reset = function () {
-            this._dx = Math.floor(Math.random() * (6 - 1)) + 1;
-            this._dy = Math.floor(Math.random() * (6 - 1)) + 1;
+            this._dx = Math.floor(Math.random() * (7 - 2)) + 2;
+            this._dy = Math.floor(Math.random() * (7 - 2)) + 2;
             this.x = config.Screen.WIDTH + this.width;
             this.y = Math.floor(Math.random() * (config.Screen.HEIGHT - 15)) + 15;
         };
@@ -57,7 +63,7 @@ var objects;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
-            this.rotation = 5;
+            this._spinNumber = Math.floor(Math.random() * (15 - 5)) + 5;
             this._reset();
         };
         /**
@@ -69,7 +75,9 @@ var objects;
          */
         Star.prototype.update = function () {
             this.x -= this._dx;
+            this.y -= this._dy;
             this.position = new objects.Vector2(this.x, this.y);
+            this.rotation += this._spinNumber;
             // this.y=core.stage.mouseY;
             this._checkBounds();
         };

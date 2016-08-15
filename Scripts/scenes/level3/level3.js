@@ -36,14 +36,15 @@ var scenes;
             this.addChild(this._player);
             this._finalBoss = new objects.FinalBoss('finalBoss');
             this.addChild(this._finalBoss);
-            this._lblScore = new objects.Label('Score: ' + core.score, '35px', "Tahoma, Geneva, sans-serif", "#fff", 150, 45);
-            this._lblScore.shadow = this._textShadow;
-            this.addChild(this._lblScore);
-            this._lblLives = new objects.Label('Lives: ' + core.lives, '34px', "Tahoma, Geneva, sans-serif", "#fff", 700, 45);
+            this._bossLives = 10;
+            this._lblBossLives = new objects.Label('Boss Lives: ' + this._bossLives, '35px', "Tahoma, Geneva, sans-serif", "#fff", 150, 45);
+            this._lblBossLives.shadow = this._textShadow;
+            this.addChild(this._lblBossLives);
+            this._lblLives = new objects.Label('Your Lives: ' + core.lives, '34px', "Tahoma, Geneva, sans-serif", "#fff", 700, 45);
             this._lblLives.shadow = this._textShadow;
             this.addChild(this._lblLives);
             this._stars = new Array();
-            for (var i = 0; i < 5; i++) {
+            for (var i = 0; i < 3; i++) {
                 var star = new objects.Star('star');
                 this._stars.push(star);
                 this.addChild(star);
@@ -67,6 +68,8 @@ var scenes;
             this._finalBoss.update();
             // lives lbl
             this._lblLives.text = 'Lives: ' + core.lives;
+            // boss lives lbl
+            this._lblBossLives.text = 'Boss Lives: ' + this._bossLives;
             // update star
             this._stars.forEach(function (star) {
                 star.update();

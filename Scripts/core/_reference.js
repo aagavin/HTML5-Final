@@ -9,6 +9,7 @@
 /// <reference path="../objects/scene/scene.ts"/>
 /// <reference path="../objects/player/player.ts"/>
 /// <reference path="../objects/shark/shark.ts"/>
+/// <reference path="../objects/bullet/bullet.ts"/>
 /// <reference path="../managers/collision.ts" />
 /// <reference path="../objects/treasure/treasure.ts" />
 /// <reference path="../scenes/over/over.ts"/>

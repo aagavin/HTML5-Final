@@ -14,10 +14,10 @@ module managers{
 
 		}
 
-		public check(player:objects.GameObject, other:objects.GameObject):void{
+		public check(prime:objects.GameObject, other:objects.GameObject):void{
 			
 			if (
-					objects.Vector2.distance(player.position, other.position) < (player.halfHeight+other.halfHeight)
+					objects.Vector2.distance(prime.position, other.position) < (prime.halfHeight+other.halfHeight)
 				) {
 				if (!other.isColliding) {
 					other.isColliding=true;
@@ -29,9 +29,17 @@ module managers{
 
 					if (other.name==='treasure') {
 						createjs.Sound.play('coin');
-						core.score+=10;
+						if(core.lives < 10){
+							core.lives += 1;
+						}
 					}
 
+					if(other.name==='bullet'){
+                        createjs.Sound.play("bulletHit");
+                        prime.Reset();
+                        other.Reset();
+                        core.score += 10;
+					}
 				}
 			}
 			else{

@@ -29,7 +29,7 @@ var scenes;
          */
         Level3.prototype.Start = function () {
             // drop shadow
-            this._textShadow = new createjs.Shadow("#000", 0, 0, 3);
+            this._textShadow = new createjs.Shadow('#000', 0, 0, 3);
             this._bgImage = new createjs.Bitmap(core.assets.getResult('bgPlayImgL2'));
             this.addChild(this._bgImage);
             this._player = new objects.Player('player_level3');

@@ -38,7 +38,7 @@ module scenes{
 		 */
 		public Start():void{
 			// drop shadow
-			this._textShadow=new createjs.Shadow("#000", 0, 0, 3);
+			this._textShadow=new createjs.Shadow('#000', 0, 0, 3);
 
 
 			this._bgImage = new createjs.Bitmap(core.assets.getResult('bgPlayImgL2'));

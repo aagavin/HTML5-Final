@@ -53,6 +53,12 @@ var objects;
             this._dy = Math.floor(Math.random() * (6 - 1)) + 1;
         };
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++
+        /**
+         * Init of final boss
+         *
+         * @public
+         * @returns {void}
+         */
         FinalBoss.prototype.start = function () {
             this._reset();
             this.x = config.Screen.HALF_WIDTH;

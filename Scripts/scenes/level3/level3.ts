@@ -75,6 +75,15 @@ module scenes{
 			this._collision=new managers.Collision();
 
 			core.stage.addChild(this);
+
+			this.on('click', function(){
+				for (var bullet in this._bullets) {
+					if (!this._bullets[bullet].InFlight) {
+						this._bullets[bullet].Fire(this._player.position);
+						break;
+					}
+				}
+			});
 		}
 
 		/**
@@ -101,6 +110,11 @@ module scenes{
 			this._stars.forEach(star => {
 				star.update();
 				this._collision.check(this._player,star);
+			});
+
+			// update bullets
+			this._bullets.forEach(bullet => {
+				bullet.update();
 			});
 
 			// Collision check between player and boss

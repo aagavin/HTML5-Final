@@ -67,7 +67,7 @@ namespace core {
 		{ id: "player_level3", src: "../../Assets/images/player_level3.png"},
 		{ id: "finalBoss", src: "../../Assets/images/finalBoss.png"},
 		{ id: "star", src: "../../Assets/images/star.png"},
-		{ id: "bulletPlayer", src: "../../Assets/images/bulletPlayer.png"},
+		{ id: "bulletPlayer", src: "../../Assets/images/bulletPlayer.gif"},
 
 
 		{ id: "shipEngine", src: "../../Assets/audio/spaceshipEngineShor.mp3"},

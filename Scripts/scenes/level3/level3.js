@@ -56,6 +56,14 @@ var scenes;
             // Collision manager
             this._collision = new managers.Collision();
             core.stage.addChild(this);
+            this.on('click', function () {
+                for (var bullet in this._bullets) {
+                    if (!this._bullets[bullet].InFlight) {
+                        this._bullets[bullet].Fire(this._player.position);
+                        break;
+                    }
+                }
+            });
         };
         /**
          * Update method
@@ -78,6 +86,10 @@ var scenes;
             this._stars.forEach(function (star) {
                 star.update();
                 _this._collision.check(_this._player, star);
+            });
+            // update bullets
+            this._bullets.forEach(function (bullet) {
+                bullet.update();
             });
             // Collision check between player and boss
             this._collision.check(this._player, this._finalBoss);

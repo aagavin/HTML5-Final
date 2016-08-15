@@ -2,6 +2,7 @@ module scenes {
 	export class Win extends objects.Scene {
 		//  PRIVATE INSTANCE VARIABLES
 		private _gameOverLabel: objects.Label;
+		private _gameOverLabel2: objects.Label;
 		private _restartButton: objects.Button;
 		private _menuButton: objects.Button;
 		private _bgImg: createjs.Bitmap;
@@ -25,10 +26,15 @@ module scenes {
 			this._gameoversound=createjs.Sound.play('gameover');
 			// Add Menu Label
 			this._gameOverLabel = new objects.Label(
-				"Congratulations you killed the Sharkmada\n and you saved the galaxy all by your self", "bold 30px","Consolas", "#ee0",
-				config.Screen.WIDTH - 100, 100
+				"Congratulations you killed the Sharkmada", "bold 30px","Consolas", "#ee0",
+				config.Screen.WIDTH - 420, 100
+			);
+			this._gameOverLabel2 = new objects.Label(
+				"and saved the galaxy!", "bold 30px","Consolas", "#ee0",
+				config.Screen.WIDTH - 420, 120
 			);
 			this.addChild(this._gameOverLabel);
+			this.addChild(this._gameOverLabel2);
 
 			// add the start button
 			this._restartButton = new objects.Button(

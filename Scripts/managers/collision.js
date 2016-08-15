@@ -43,7 +43,6 @@ var managers;
                         other.Reset();
                         core.score += 10;
                         core.peopleSaved += 1;
-                        console.log(core.peopleSaved);
                     }
                     // bulletPlayer
                     if (prime.name === 'star' && other.name === 'bulletPlayer') {

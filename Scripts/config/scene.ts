@@ -5,6 +5,7 @@ module config {
         LEVEL2,
         LEVEL3,
         OVER,
-        INSTRUCTIONS
+        INSTRUCTIONS,
+        WIN
     }
 }

@@ -48,6 +48,7 @@ namespace core {
 	let level2: scenes.Level2;
 	let level3: scenes.Level3;
 	let instruction: scenes.Instructions;
+	let win: scenes.Win;
 
 
 
@@ -111,9 +112,6 @@ namespace core {
 
 		// setup the default scene
 		scene = config.Scene.MENU;
-		// scene = config.Scene.MENU;
-		scene = config.Scene.MENU;
-		// scene=config.Scene.LEVEL2;
 		changeScene();
 
 		createjs.Ticker.framerate = 60;
@@ -175,6 +173,11 @@ namespace core {
 				stage.removeAllChildren();
 				instruction = new scenes.Instructions();
 				currentScene = instruction;
+				break;
+				case config.Scene.WIN:
+				stage.removeAllChildren();
+				win = new scenes.Win();
+				currentScene = win;
 				break;
 		}
 	}

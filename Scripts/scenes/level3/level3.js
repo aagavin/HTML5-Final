@@ -106,8 +106,13 @@ var scenes;
             // Collision check between player and boss
             this._collision.check(this._player, this._finalBoss);
             //this._collision.check(this._player)
-            if (core.lives < 1 || core.bossLives < 1) {
+            if (core.lives < 1) {
                 core.scene = config.Scene.OVER;
+                core.changeScene();
+            }
+            if (core.bossLives < 1) {
+                core.scene = config.Scene.WIN;
+                core.changeScene();
             }
             this.checkBounds();
         };

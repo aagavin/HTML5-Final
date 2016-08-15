@@ -79,7 +79,7 @@ module objects {
             this.y = newPosition.y;
             this.position = newPosition;
             this.InFlight = true;
-            createjs.Sound.play("bulletFire");
+            createjs.Sound.play("laser");
         }
 
 

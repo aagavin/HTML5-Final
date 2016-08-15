@@ -1,8 +1,8 @@
 module objects{
 
 	/**
-	 * This is the treasure object used in the game
-	 * 
+	 * This is the Treasure object used in the game
+	 * Update: It shows a heart icon
 	 * @class Treasure
 	 * @extends {objects.GameObject}
 	 */
@@ -27,7 +27,7 @@ module objects{
 		 * @private
 		 * @returns {void}
 		 */
-		private _reset():void{
+		 public Reset():void{
 			this._dx= Math.floor(Math.random() * 3) + 2;
 
 			this.x=800+this.width;
@@ -43,7 +43,7 @@ module objects{
 		 */
 		private _checkBounds():void {
 			if(this.x <= -(this.width*2)) {
-				this._reset();
+				this.Reset();
 			}
 		}
 
@@ -63,7 +63,7 @@ module objects{
 			this.regX = this.width * 0.5;
 			this.regY = this.height * 0.5;
 
-			this._reset();
+			this.Reset();
 		}
 
 		/**

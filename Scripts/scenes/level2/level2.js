@@ -7,12 +7,16 @@ var scenes;
 (function (scenes) {
     var Level2 = (function (_super) {
         __extends(Level2, _super);
+        //private _nextLevelBtn: objects.Button;
         /**
          * Creates an instance of Play.
          *
          */
         function Level2() {
             _super.call(this);
+            //private _amfiring:boolean;
+            //private _keyboardControls: objects.KeyboardControls;
+            this._frameCount = 0;
         }
         // Public methods
         /**
@@ -22,49 +26,74 @@ var scenes;
             var _this = this;
             // create play objects
             this._bgImage = new createjs.Bitmap(core.assets.getResult("bgPlayImgL2"));
-            this._player = new objects.Player("diver");
+            this._player = new objects.Player("player_level3");
             this._sharks = [
                 new objects.Shark("shark"), new objects.Shark("shark"), new objects.Shark("shark")
             ];
             // add objects to scent
             this.addChild(this._bgImage);
-            // this._bubbles.forEach(bubble => {
-            // 	this.addChild(bubble);
-            // });
             // add player to scene
             this.addChild(this._player);
             // add shark to scene
             this._sharks.forEach(function (shark) {
                 _this.addChild(shark);
             });
-            this._treasure = new objects.Treasure();
+            this._treasure = new objects.InjuredPeople();
             this.addChild(this._treasure);
-            // add score and lives manager
-            core.lives = 10;
-            core.score = 0;
+            this._bullets = new Array();
+            for (var bullet = 0; bullet < 10; bullet++) {
+                this._bullets.push(new objects.Bullet("bulletPlayer"));
+                this.addChild(this._bullets[bullet]);
+            }
             this._livesLbl = new objects.Label("Lives: " + core.lives, "35px", "Tahoma, Geneva, sans-serif", "#ff0", 100, 45);
             this.addChild(this._livesLbl);
-            this._scoreLbl = new objects.Label("Score: " + core.score, "35px", "Tahoma, Geneva, sans-serif", "#ff0", 520, 45);
+            this._scoreLbl = new objects.Label("Score: " + core.score, "35px", "Tahoma, Geneva, sans-serif", "#ff0", 700, 45);
             this.addChild(this._scoreLbl);
+            this._peopleSavedLbl = new objects.Label("People Saved: " + core.peopleSaved, "35px", "Tahoma, Geneva, sans-serif", "#ff0", 400, 45);
+            this.addChild(this._peopleSavedLbl);
             // add a collision managers
             this._collision = new managers.Collision();
             // add scene to stage
             core.stage.addChild(this);
             // start sound
-            this._themeSound = createjs.Sound.play('theduel');
+            this._themeSound = createjs.Sound.play('epic');
+            this._themeSound.volume = 0.2;
             this._themeSound.loop = -1;
+            this.on('click', function () {
+                for (var bullet in this._bullets) {
+                    if (!this._bullets[bullet].InFlight) {
+                        this._bullets[bullet].Fire(this._player.position);
+                        break;
+                    }
+                }
+            });
+        };
+        Level2.prototype.Test = function () {
+            console.log("Fire");
+            return true;
         };
         Level2.prototype.Update = function () {
             var _this = this;
+            //this._amfiring = false;
             // 
-            this._bgImage.x -= .75;
-            console.log(this._bgImage.getBounds.length);
-            // update player
+            this._frameCount++;
+            this._bgImage.x -= .5;
+            this._bullets.forEach(function (bullet) {
+                // update each bullet
+                bullet.update();
+            });
+            // update player	
             this._player.update();
-            // update shark
+            // update shark + player
             this._sharks.forEach(function (shark) {
                 shark.update();
                 _this._collision.check(_this._player, shark);
+            });
+            //update shark + bullet
+            this._sharks.forEach(function (shark) {
+                _this._bullets.forEach(function (bullet) {
+                    _this._collision.check(shark, bullet);
+                });
             });
             // update treasure
             this._treasure.update();
@@ -73,10 +102,18 @@ var scenes;
                 this._themeSound.stop();
                 core.scene = config.Scene.OVER;
                 core.changeScene();
+                this.off('click', null); // Remove event handler
+            }
+            if (core.peopleSaved > 9) {
+                this._themeSound.stop();
+                core.scene = config.Scene.LEVEL3;
+                core.changeScene();
+                this.off('click', null); // Remove event handler
             }
             // update score and lives
             this._livesLbl.text = "Lives: " + core.lives;
             this._scoreLbl.text = "Score: " + core.score;
+            this._peopleSavedLbl.text = "People Saved: " + core.peopleSaved;
             this.checkBounds();
         };
         Level2.prototype.checkBounds = function () {

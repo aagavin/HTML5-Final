@@ -1,4 +1,11 @@
 module scenes {
+	/**
+	 * This is the Level 1 Scene object used in the game
+	 * 
+	 * @class Level1
+	 * @extends {objects.Scene}
+	 */
+
 	export class Level1 extends objects.Scene{
 		// Private instance varables
 		private _bgImage:createjs.Bitmap;
@@ -18,7 +25,7 @@ module scenes {
 		//private _nextLevelBtn: objects.Button;
 
 		/**
-		 * Creates an instance of Play.
+		 * Creates an instance of Level1.
 		 * 
 		 */
 		constructor(){
@@ -27,18 +34,19 @@ module scenes {
 
 		// Public methods
 		/**
-		 * Start method
+		 * Start method for Level1
 		 */
 		public Start():void{
 			// create play objects
 			this._bgImage=new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
 
+			//creates and adds shark/ship objects
 			this._player=new objects.Player("diver");
 			this._sharks=[
 				new objects.Shark("shark"),new objects.Shark("shark"),new objects.Shark("shark")
 			];
 
-			// add objects to scent
+			// add background object to scene
 			this.addChild(this._bgImage);
 			// this._bubbles.forEach(bubble => {
 			// 	this.addChild(bubble);
@@ -48,13 +56,17 @@ module scenes {
 			// add player to scene
 			this.addChild(this._player);
 			// add shark to scene
+
+			//add Sharks with foreach loop (3 sharks)
 			this._sharks.forEach(shark => {
 				this.addChild(shark);
 			});
 
+			//Add and create heart icon
 			this._treasure=new objects.Treasure();
 			this.addChild(this._treasure);
 
+			//create and add bullet objects (10)
 			this._bullets = new Array<objects.Bullet>();
 
 			for (let bullet = 0; bullet < 10; bullet++){
@@ -65,6 +77,10 @@ module scenes {
 			// add score and lives manager
 			core.lives=10;
 			core.score=0;
+			core.peopleSaved=0;
+			core.bossLives=20;
+
+
 			this._livesLbl=new objects.Label("Lives: "+core.lives,"35px","Tahoma, Geneva, sans-serif","#ff0",100,45);
 			this.addChild(this._livesLbl);
 			this._scoreLbl=new objects.Label("Score: "+core.score, "35px","Tahoma, Geneva, sans-serif", "#ff0",700,45);
@@ -79,6 +95,7 @@ module scenes {
 			this._themeSound=createjs.Sound.play('shipEngine');
 			this._themeSound.loop=-1;
 
+			//Shoot with mouseclick function
 			this.on('click',function(){
 					for (var bullet in this._bullets) {
 						if (!this._bullets[bullet].InFlight) {
@@ -87,17 +104,6 @@ module scenes {
 						}
 					}
 			});
-		}
-
-		public Test():boolean{
-			console.log("Fire");
-				/*for (var bullet in this._bullets) {
-						if (!this._bullets[bullet].InFlight) {
-							this._bullets[bullet].Fire(this._player.position);
-							break;	
-						}
-					}*/
-				return  true;
 		}
 
 		public Update():void {
@@ -127,44 +133,11 @@ module scenes {
 				});
 			});
 
-
-			//This is the TEST code, it does not work
-			/*if (this._frameCount % 10 == 0){
-				this.addEventListener('click', function () {
-					console.log("fire");
-					for (var bullet in this._bullets) {
-						if (!this._bullets[bullet].InFlight) {
-							this._bullets[bullet].Fire(this._player.position);
-							break;
-						}
-					}
-				});
-			}*/
-
-			// this.addEventListener('click', function(){			
-			// 	if (this._frameCount % 10 == 0) {
-			// 		console.log("fire");
-			// 		for (var bullet in this._bullets) {
-			// 			if (!this._bullets[bullet].InFlight) {
-			// 				this._bullets[bullet].Fire(this._player.position);
-			// 				break;
-			// 			}
-			// 		}
-      //       }})
-
-			// if (this._frameCount % 10 == 0) {
-			// 		for (var bullet in this._bullets) {
-			// 			if (!this._bullets[bullet].InFlight) {
-			// 				this._bullets[bullet].Fire(this._player.position);
-			// 				break;
-			// 			}
-			// 		}
-			// }
-
 			// update treasure
 			this._treasure.update();
 			this._collision.check(this._player, this._treasure);
 
+			//Death condition
 			if (core.lives<1) {
 				this._themeSound.stop();
 				core.scene=config.Scene.OVER;
@@ -173,6 +146,7 @@ module scenes {
 				this.off('click',null);// Remove event handler
 			}
 
+			//Level 2 condition
 			if (core.score > 290){
 				this._themeSound.stop();
 				core.scene = config.Scene.LEVEL2;
@@ -187,18 +161,11 @@ module scenes {
 				this._nextLevelBtn.on('click', this._nextLevelBtnClick, this);*/
 			}
 
-
-
-
-
 			// update score and lives
 			this._livesLbl.text="Lives: "+core.lives;
 			this._scoreLbl.text="Score: "+core.score;
 
-			this.checkBounds();
-		
-
-			
+			this.checkBounds();		
 		}
 
 		private checkBounds() {

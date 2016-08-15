@@ -111,7 +111,7 @@ namespace core {
 
 		// setup the default scene
 		// scene = config.Scene.MENU;
-		scene = config.Scene.LEVEL2;
+		scene = config.Scene.MENU;
 		// scene=config.Scene.LEVEL2;
 		changeScene();
 

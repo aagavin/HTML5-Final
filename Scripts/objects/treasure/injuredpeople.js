@@ -28,8 +28,8 @@ var objects;
          * @private
          * @returns {void}
          */
-        InjuredPeople.prototype._reset = function () {
-            this._dx = Math.floor(Math.random() * 3) + 2;
+        InjuredPeople.prototype.Reset = function () {
+            this._dx = Math.floor(Math.random() * 8) + 3;
             this.x = 800 + this.width;
             this.y = Math.floor(Math.random() * ((480 - this.width) - 200 + 1) + 200);
         };
@@ -42,7 +42,7 @@ var objects;
          */
         InjuredPeople.prototype._checkBounds = function () {
             if (this.x <= -(this.width * 2)) {
-                this._reset();
+                this.Reset();
             }
         };
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++
@@ -59,7 +59,7 @@ var objects;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
-            this._reset();
+            this.Reset();
         };
         /**
          * This method updates the object's properties

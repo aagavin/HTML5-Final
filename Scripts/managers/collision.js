@@ -28,6 +28,14 @@ var managers;
                         other.Reset();
                         core.score += 10;
                     }
+                    if (other.name === 'injured') {
+                        createjs.Sound.play("thanks");
+                        prime.Reset();
+                        other.Reset();
+                        core.score += 10;
+                        core.peopleSaved += 1;
+                        console.log(core.peopleSaved);
+                    }
                 }
             }
             else {

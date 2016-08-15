@@ -27,8 +27,8 @@ module objects{
 		 * @private
 		 * @returns {void}
 		 */
-		private _reset():void{
-			this._dx= Math.floor(Math.random() * 3) + 2;
+		public Reset():void{
+			this._dx= Math.floor(Math.random() * 8) + 3;
 
 			this.x=800+this.width;
 			this.y= Math.floor(Math.random()*((480-this.width)-200+1)+200);
@@ -43,7 +43,7 @@ module objects{
 		 */
 		private _checkBounds():void {
 			if(this.x <= -(this.width*2)) {
-				this._reset();
+				this.Reset();
 			}
 		}
 
@@ -63,7 +63,7 @@ module objects{
 			this.regX = this.width * 0.5;
 			this.regY = this.height * 0.5;
 
-			this._reset();
+			this.Reset();
 		}
 
 		/**

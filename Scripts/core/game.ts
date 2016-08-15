@@ -30,6 +30,7 @@ namespace core {
 	export let score:number = 0;
 	export let lives:number = 0;
 	export let highScore:number = 0;
+	export let peopleSaved:number = 0;
 
  
 
@@ -56,20 +57,23 @@ namespace core {
 		{ id: "bgPlayImgL2", src: "../../Assets/images/spaceshipinterior.jpg"},
 		{ id: "bubble", src: "../../Assets/images/bubble2.png"},
 		{ id: "diver", src: "../../Assets/images/spaceship.png"},
+		{ id: "player_level3", src: "../../Assets/images/player_level3.png"},
 		{ id: "shark", src: "../../Assets/images/shark.png"},
    		{ id: "startBtn", src: "../../Assets/images/startBtn.png"},
 		{ id: "treasure", src: "../../Assets/images/treasure.png"},
 		{ id: "injured", src: "../../Assets/images/injuredEmoji.png"},
 		{ id: "bullet", src: "../../Assets/images/bullet.png"},
+		{ id: "bulletPlayer", src: "../../Assets/images/bulletPlayer.png"},
 		{ id: "laser", src: "../../Assets/audio/laser.wav"},
 		{ id: "playagain", src: "../../Assets/images/playagain.png"},
 		{ id: "menu", src: "../../Assets/images/menu.png"},
 		{ id: "shipEngine", src: "../../Assets/audio/spaceshipEngineShor.mp3"},
+		{ id: "thanks", src: "../../Assets/audio/thankyou.mp3"},
 		{ id: "theduel", src: "../../Assets/audio/theduel.ogg"},
 		{ id: "epic", src: "../../Assets/audio/epic.mp3"},
 		{ id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg"},
 		{ id: "coin", src: "../../Assets/audio/lifeup.wav"},
-		{ id: "death", src: "../../Assets/audio/death.wav"},
+		{ id: "death", src: "../../Assets/audio/death.mp3"},
 		{ id: "gameover", src: "../../Assets/audio/gameover.ogg"}
 	];
 
@@ -98,7 +102,7 @@ namespace core {
 		stage.enableMouseOver(20);
 
 		// setup the default scene
-		scene = config.Scene.LEVEL2;
+		scene = config.Scene.MENU;
 		changeScene();
 
 		createjs.Ticker.framerate = 60;

@@ -26,7 +26,7 @@ var scenes;
             var _this = this;
             // create play objects
             this._bgImage = new createjs.Bitmap(core.assets.getResult("bgPlayImgL2"));
-            this._player = new objects.Player("diver");
+            this._player = new objects.Player("player_level3");
             this._sharks = [
                 new objects.Shark("shark"), new objects.Shark("shark"), new objects.Shark("shark")
             ];
@@ -45,7 +45,7 @@ var scenes;
             this.addChild(this._treasure);
             this._bullets = new Array();
             for (var bullet = 0; bullet < 10; bullet++) {
-                this._bullets.push(new objects.Bullet("bullet"));
+                this._bullets.push(new objects.Bullet("bulletPlayer"));
                 this.addChild(this._bullets[bullet]);
             }
             // add score and lives manager
@@ -55,12 +55,15 @@ var scenes;
             this.addChild(this._livesLbl);
             this._scoreLbl = new objects.Label("Score: " + core.score, "35px", "Tahoma, Geneva, sans-serif", "#ff0", 700, 45);
             this.addChild(this._scoreLbl);
+            this._peopleSavedLbl = new objects.Label("People Saved: " + core.peopleSaved, "35px", "Tahoma, Geneva, sans-serif", "#ff0", 400, 45);
+            this.addChild(this._peopleSavedLbl);
             // add a collision managers
             this._collision = new managers.Collision();
             // add scene to stage
             core.stage.addChild(this);
             // start sound
-            this._themeSound = createjs.Sound.play('shipEngine');
+            this._themeSound = createjs.Sound.play('epic');
+            this._themeSound.volume = 0.2;
             this._themeSound.loop = -1;
             this.on('click', function () {
                 for (var bullet in this._bullets) {
@@ -143,15 +146,16 @@ var scenes;
                 core.changeScene();
                 this.off('click', null); // Remove event handler
             }
-            if (core.score > 290) {
+            if (core.peopleSaved > 9) {
                 this._themeSound.stop();
-                core.scene = config.Scene.LEVEL2;
+                core.scene = config.Scene.LEVEL3;
                 core.changeScene();
                 this.off('click', null); // Remove event handler
             }
             // update score and lives
             this._livesLbl.text = "Lives: " + core.lives;
             this._scoreLbl.text = "Score: " + core.score;
+            this._peopleSavedLbl.text = "People Saved: " + core.peopleSaved;
             this.checkBounds();
         };
         Level2.prototype.checkBounds = function () {

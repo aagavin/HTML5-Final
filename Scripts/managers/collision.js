@@ -39,7 +39,6 @@ var managers;
                     if (other.name === 'star') {
                         core.lives -= 1;
                         other.Reset();
-                        console.log('Star Collision');
                     }
                     // bulletPlayer
                     if (prime.name === 'star' && other.name === 'bulletPlayer') {
@@ -50,6 +49,7 @@ var managers;
                     if (prime.name === 'finalBoss' && other.name === 'bulletPlayer') {
                         core.bossLives -= 1;
                         other.Reset();
+                        createjs.Sound.play('death');
                     }
                 }
             }

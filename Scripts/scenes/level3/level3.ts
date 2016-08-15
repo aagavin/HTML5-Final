@@ -137,6 +137,10 @@ module scenes{
 			this._collision.check(this._player,this._finalBoss);
 			//this._collision.check(this._player)
 
+			if (core.lives<1 || core.bossLives<1) {
+				core.scene=config.Scene.OVER;
+			}
+
 			this.checkBounds();
 		}
 

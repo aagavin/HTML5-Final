@@ -54,7 +54,7 @@ var core;
         { id: "coin", src: "../../Assets/audio/lifeup.wav" },
         { id: "death", src: "../../Assets/audio/death.wav" },
         { id: "gameover", src: "../../Assets/audio/gameover.ogg" },
-        { id: "level3_music", src: "../../Assets/audio/level3_music.mp3" }
+        { id: "level3_music", src: "../../Assets/audio/level3_music.ogg" }
     ];
     /**
      * This method preloads assets for the game

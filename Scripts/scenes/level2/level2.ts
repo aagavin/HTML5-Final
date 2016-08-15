@@ -42,10 +42,6 @@ module scenes{
 
 			// add objects to scent
 			this.addChild(this._bgImage);
-			// this._bubbles.forEach(bubble => {
-			// 	this.addChild(bubble);
-			// });
-
 
 			// add player to scene
 			this.addChild(this._player);
@@ -65,9 +61,6 @@ module scenes{
 				this.addChild(this._bullets[bullet]);
 			}
 
-			// add score and lives manager
-			//core.lives=10;
-			//core.score=0;
 			this._livesLbl=new objects.Label("Lives: "+core.lives,"35px","Tahoma, Geneva, sans-serif","#ff0",100,45);
 			this.addChild(this._livesLbl);
 			this._scoreLbl=new objects.Label("Score: "+core.score, "35px","Tahoma, Geneva, sans-serif", "#ff0",700,45);
@@ -97,13 +90,7 @@ module scenes{
 
 		public Test():boolean{
 			console.log("Fire");
-				/*for (var bullet in this._bullets) {
-						if (!this._bullets[bullet].InFlight) {
-							this._bullets[bullet].Fire(this._player.position);
-							break;	
-						}
-					}*/
-				return  true;
+			return  true;
 		}
 
 		public Update():void {
@@ -113,9 +100,9 @@ module scenes{
 			this._bgImage.x-=.5;
 
  			this._bullets.forEach(bullet => {
-                // update each bullet
-                bullet.update();
-            });
+				// update each bullet
+				bullet.update();
+			});
 
 			// update player	
 			this._player.update();		
@@ -133,40 +120,6 @@ module scenes{
 				});
 			});
 			
-
-
-			//This is the TEST code, it does not work
-			/*if (this._frameCount % 10 == 0){
-				this.addEventListener('click', function () {
-					console.log("fire");
-					for (var bullet in this._bullets) {
-						if (!this._bullets[bullet].InFlight) {
-							this._bullets[bullet].Fire(this._player.position);
-							break;
-						}
-					}
-				});
-			}*/
-
-			// this.addEventListener('click', function(){			
-			// 	if (this._frameCount % 10 == 0) {
-			// 		console.log("fire");
-			// 		for (var bullet in this._bullets) {
-			// 			if (!this._bullets[bullet].InFlight) {
-			// 				this._bullets[bullet].Fire(this._player.position);
-			// 				break;
-			// 			}
-			// 		}
-      //       }})
-
-			// if (this._frameCount % 10 == 0) {
-			// 		for (var bullet in this._bullets) {
-			// 			if (!this._bullets[bullet].InFlight) {
-			// 				this._bullets[bullet].Fire(this._player.position);
-			// 				break;
-			// 			}
-			// 		}
-			// }
 
 			// update treasure
 			this._treasure.update();
@@ -186,17 +139,8 @@ module scenes{
 				core.changeScene();
 
 				this.off('click',null);// Remove event handler
-				//Fix this later if it can be fixed
-				//Remove the player, sharks, treasure, background.dx = 0, add button and on button click switch scenes
-				//This might need to be in a new scene.
-				/*this._nextLevelBtn = new objects.Button("nextLevelBtn", 300, 400, true);
-				this.addChild(this._nextLevelBtn);
-				this._nextLevelBtn.on('click', this._nextLevelBtnClick, this);*/
+
 			}
-
-
-
-
 
 			// update score and lives
 			this._livesLbl.text="Lives: "+core.lives;

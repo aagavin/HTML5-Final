@@ -42,6 +42,7 @@ var core;
         { id: "player_level3", src: "../../Assets/images/player_level3.png" },
         { id: "shark", src: "../../Assets/images/shark.png" },
         { id: "startBtn", src: "../../Assets/images/startBtn.png" },
+        { id: "exitButton", src: "../../Assets/images/exitButton.png" },
         { id: "treasure", src: "../../Assets/images/treasure.png" },
         { id: "injured", src: "../../Assets/images/injuredEmoji.png" },
         { id: "bullet", src: "../../Assets/images/bullet.png" },

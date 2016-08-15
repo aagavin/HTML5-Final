@@ -34,7 +34,7 @@ var objects;
          * @method _reset
          * @returns {void}
          */
-        Shark.prototype._reset = function () {
+        Shark.prototype.Reset = function () {
             this._dx = Math.floor((Math.random() * 5) + 3); // vertical speed
             this._dy = Math.floor((Math.random() * 4) - 2); // horizontal drift
             this.x = 800 + this.width;
@@ -50,7 +50,7 @@ var objects;
          */
         Shark.prototype._checkBounds = function () {
             if (this.x <= -(this.width * 2)) {
-                this._reset();
+                this.Reset();
             }
         };
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++
@@ -67,7 +67,7 @@ var objects;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
-            this._reset();
+            this.Reset();
         };
         /**
          * This method updates the object's properties

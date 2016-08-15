@@ -61,7 +61,8 @@ var objects;
          * @return {void}
          */
         Bullet.prototype._checkBounds = function () {
-            if (this.position.y <= -this.height) {
+            //console.log(this.position.x + ", " + this.width);
+            if (this.position.x >= 900 - this.width) {
                 this.Reset();
             }
         };
@@ -74,20 +75,20 @@ var objects;
          * @return {void}
          */
         Bullet.prototype.Fire = function (newPosition) {
-            this.x = newPosition.x;
+            this.x = newPosition.x + 60;
             this.y = newPosition.y;
             this.position = newPosition;
             this.InFlight = true;
-            createjs.Sound.play("bulletFire");
+            createjs.Sound.play("laser");
         };
         Bullet.prototype.start = function () {
             this._defaultPosition = new objects.Vector2(1000, 1000);
-            this.Speed = 10;
+            this.Speed = -10;
             this.Reset();
         };
         Bullet.prototype.update = function () {
             if (this.InFlight) {
-                this.y -= this.Speed;
+                this.x -= this.Speed;
             }
             this.position = new objects.Vector2(this.x, this.y);
             this._checkBounds();

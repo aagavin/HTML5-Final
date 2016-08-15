@@ -8,8 +8,8 @@ var managers;
         };
         Collision.prototype.update = function () {
         };
-        Collision.prototype.check = function (player, other) {
-            if (objects.Vector2.distance(player.position, other.position) < (player.halfHeight + other.halfHeight)) {
+        Collision.prototype.check = function (prime, other) {
+            if (objects.Vector2.distance(prime.position, other.position) < (prime.halfHeight + other.halfHeight)) {
                 if (!other.isColliding) {
                     other.isColliding = true;
                     if (other.name === 'shark') {
@@ -18,6 +18,14 @@ var managers;
                     }
                     if (other.name === 'treasure') {
                         createjs.Sound.play('coin');
+                        if (core.lives < 10) {
+                            core.lives += 1;
+                        }
+                    }
+                    if (other.name === 'bullet') {
+                        createjs.Sound.play("death");
+                        prime.Reset();
+                        other.Reset();
                         core.score += 10;
                     }
                 }

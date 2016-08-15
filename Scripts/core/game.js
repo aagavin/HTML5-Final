@@ -35,15 +35,19 @@ var core;
         { id: "bgPlayImg", src: "../../Assets/images/bg.jpg" },
         { id: "bgPlayImgL2", src: "../../Assets/images/spaceshipinterior.jpg" },
         { id: "bubble", src: "../../Assets/images/bubble2.png" },
-        { id: "diver", src: "../../Assets/images/diver.png" },
+        { id: "diver", src: "../../Assets/images/spaceship.png" },
         { id: "shark", src: "../../Assets/images/shark.png" },
         { id: "startBtn", src: "../../Assets/images/startBtn.png" },
         { id: "treasure", src: "../../Assets/images/treasure.png" },
+        { id: "bullet", src: "../../Assets/images/bullet.png" },
+        { id: "laser", src: "../../Assets/audio/laser.wav" },
         { id: "playagain", src: "../../Assets/images/playagain.png" },
         { id: "menu", src: "../../Assets/images/menu.png" },
+        { id: "shipEngine", src: "../../Assets/audio/spaceshipEngineShor.mp3" },
         { id: "theduel", src: "../../Assets/audio/theduel.ogg" },
         { id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg" },
-        { id: "coin", src: "../../Assets/audio/coin.ogg" },
+        { id: "coin", src: "../../Assets/audio/lifeup.wav" },
+        { id: "death", src: "../../Assets/audio/death.wav" },
         { id: "gameover", src: "../../Assets/audio/gameover.ogg" }
     ];
     /**

@@ -110,14 +110,10 @@ namespace core {
 		stage.enableMouseOver(20);
 
 		// setup the default scene
-<<<<<<< HEAD
 		scene = config.Scene.MENU;
-
-=======
 		// scene = config.Scene.MENU;
 		scene = config.Scene.MENU;
 		// scene=config.Scene.LEVEL2;
->>>>>>> f5f8a8c9aea90e7e4a1edfd3b3f7755063e9f7a4
 		changeScene();
 
 		createjs.Ticker.framerate = 60;

@@ -75,7 +75,8 @@ namespace core {
 		{ id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg"},
 		{ id: "coin", src: "../../Assets/audio/lifeup.wav"},
 		{ id: "death", src: "../../Assets/audio/death.wav"},
-		{ id: "gameover", src: "../../Assets/audio/gameover.ogg"}
+		{ id: "gameover", src: "../../Assets/audio/gameover.ogg"},
+		{ id: "level3_music", src: "../../Assets/audio/level3_music.mp3"}
 	];
 
 	/**

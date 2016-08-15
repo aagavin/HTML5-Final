@@ -18,6 +18,7 @@ module scenes{
 		private _collision:managers.Collision;
 		private _stars:Array<objects.Star>;
 		private _bullets:objects.Bullet[];
+		private _themeSound:createjs.AbstractSoundInstance;
 
 
 		/**
@@ -74,6 +75,9 @@ module scenes{
 			// Collision manager
 			this._collision=new managers.Collision();
 
+			this._themeSound=createjs.Sound.play('level3_music');
+			this._themeSound.loop=-1;
+
 			core.stage.addChild(this);
 
 			this.on('click', function(){
@@ -106,10 +110,22 @@ module scenes{
 			// boss lives lbl
 			this._lblBossLives.text='Boss Lives: '+core.bossLives;
 
-			// update star
+			// _collision star and player
 			this._stars.forEach(star => {
-				star.update();
 				this._collision.check(this._player,star);
+				star.update();
+			});
+
+			// Collision between star and bullet
+			this._stars.forEach(star => {
+				this._bullets.forEach(bullet => {
+					this._collision.check(star,bullet);
+				});
+			});
+
+			// Collision between bullet and boss
+			this._bullets.forEach(bullet => {
+				this._collision.check(this._finalBoss,bullet);
 			});
 
 			// update bullets

@@ -34,7 +34,7 @@ var objects;
         */
         Star.prototype._checkBounds = function () {
             if ((this.x + this.halfWidth) < 0) {
-                this._reset();
+                this.Reset();
             }
             if (this.y < (this.halfHeight)) {
                 this._dy = (-1) * this._dy;
@@ -43,7 +43,7 @@ var objects;
                 this._dy = (-1) * this._dy;
             }
         };
-        Star.prototype._reset = function () {
+        Star.prototype.Reset = function () {
             this._dx = Math.floor(Math.random() * (7 - 2)) + 2;
             this._dy = Math.floor(Math.random() * (7 - 2)) + 2;
             this.x = config.Screen.WIDTH + this.width;
@@ -64,7 +64,7 @@ var objects;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
             this._spinNumber = Math.floor(Math.random() * (15 - 5)) + 5;
-            this._reset();
+            this.Reset();
         };
         /**
          * This method updates the objects properties every time it's called

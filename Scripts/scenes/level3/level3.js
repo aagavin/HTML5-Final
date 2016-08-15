@@ -55,6 +55,8 @@ var scenes;
             }
             // Collision manager
             this._collision = new managers.Collision();
+            this._themeSound = createjs.Sound.play('level3_music');
+            this._themeSound.loop = -1;
             core.stage.addChild(this);
             this.on('click', function () {
                 for (var bullet in this._bullets) {
@@ -82,10 +84,20 @@ var scenes;
             this._lblLives.text = 'Lives: ' + core.lives;
             // boss lives lbl
             this._lblBossLives.text = 'Boss Lives: ' + core.bossLives;
-            // update star
+            // _collision star and player
             this._stars.forEach(function (star) {
-                star.update();
                 _this._collision.check(_this._player, star);
+                star.update();
+            });
+            // Collision between star and bullet
+            this._stars.forEach(function (star) {
+                _this._bullets.forEach(function (bullet) {
+                    _this._collision.check(star, bullet);
+                });
+            });
+            // Collision between bullet and boss
+            this._bullets.forEach(function (bullet) {
+                _this._collision.check(_this._finalBoss, bullet);
             });
             // update bullets
             this._bullets.forEach(function (bullet) {

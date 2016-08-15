@@ -35,7 +35,7 @@ module objects {
 		*/
 		private _checkBounds(): void {
 			if((this.x+this.halfWidth)<0){
-				this._reset();
+				this.Reset();
 			}
 
 			if (this.y<(this.halfHeight)) {
@@ -47,7 +47,7 @@ module objects {
 			}
 		}
 
-		private _reset():void {
+		public Reset():void {
 			this._dx=Math.floor(Math.random() * (7 - 2)) + 2;
 			this._dy=Math.floor(Math.random() * (7 - 2)) + 2;
 
@@ -75,7 +75,7 @@ module objects {
 			this.regY = this.height * 0.5;
 			
 			this._spinNumber=Math.floor(Math.random() * (15 - 5)) + 5;
-			this._reset()
+			this.Reset()
 		}
 
 		/**

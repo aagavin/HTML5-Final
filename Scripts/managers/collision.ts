@@ -48,8 +48,23 @@ module managers{
 
 					if (other.name==='finalBoss'){core.lives-=1;}
 
+					// 
 					if (other.name==='star') {
 						core.lives-=1;
+						other.Reset();
+						console.log('Star Collision');
+					}
+
+					// bulletPlayer
+					if (prime.name==='star' && other.name==='bulletPlayer') {
+						prime.Reset();
+						other.Reset();
+					}
+
+					// boss and bullet
+					if (prime.name==='finalBoss' && other.name==='bulletPlayer') {
+						core.bossLives-=1;
+						other.Reset();
 					}
 
 

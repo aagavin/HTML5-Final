@@ -19,7 +19,7 @@ var core;
     // Score and lives
     core.score = 0;
     core.lives = 0;
-    core.bossLives = 10;
+    core.bossLives = 20;
     core.highScore = 0;
     core.peopleSaved = 0;
     var startButton; // reference to our button class

@@ -61,6 +61,8 @@ var scenes;
             // add score and lives manager
             core.lives = 10;
             core.score = 0;
+            core.peopleSaved = 0;
+            core.bossLives = 20;
             this._livesLbl = new objects.Label("Lives: " + core.lives, "35px", "Tahoma, Geneva, sans-serif", "#ff0", 100, 45);
             this.addChild(this._livesLbl);
             this._scoreLbl = new objects.Label("Score: " + core.score, "35px", "Tahoma, Geneva, sans-serif", "#ff0", 700, 45);

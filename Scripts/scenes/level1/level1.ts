@@ -79,6 +79,14 @@ module scenes {
 			this._themeSound=createjs.Sound.play('shipEngine');
 			this._themeSound.loop=-1;
 
+			this.on('click',function(){
+					for (var bullet in this._bullets) {
+						if (!this._bullets[bullet].InFlight) {
+							this._bullets[bullet].Fire(this._player.position);
+							break;
+						}
+					}
+			});
 		}
 
 		public Test():boolean{
@@ -133,24 +141,25 @@ module scenes {
 				});
 			}*/
 
-			this.addEventListener('click', function(){			
-				if (this._frameCount % 10 == 0) {
-					console.log("fire");
-					for (var bullet in this._bullets) {
-						if (!this._bullets[bullet].InFlight) {
-							this._bullets[bullet].Fire(this._player.position);
-							break;
-						}
-					}
-            }})
+			// this.addEventListener('click', function(){			
+			// 	if (this._frameCount % 10 == 0) {
+			// 		console.log("fire");
+			// 		for (var bullet in this._bullets) {
+			// 			if (!this._bullets[bullet].InFlight) {
+			// 				this._bullets[bullet].Fire(this._player.position);
+			// 				break;
+			// 			}
+			// 		}
+      //       }})
 
-			if (this._frameCount % 10 == 0) {
-					for (var bullet in this._bullets) {
-						if (!this._bullets[bullet].InFlight) {
-							this._bullets[bullet].Fire(this._player.position);
-							break;
-						}
-					}
+			// if (this._frameCount % 10 == 0) {
+			// 		for (var bullet in this._bullets) {
+			// 			if (!this._bullets[bullet].InFlight) {
+			// 				this._bullets[bullet].Fire(this._player.position);
+			// 				break;
+			// 			}
+			// 		}
+			// }
 
 			// update treasure
 			this._treasure.update();
@@ -160,12 +169,16 @@ module scenes {
 				this._themeSound.stop();
 				core.scene=config.Scene.OVER;
 				core.changeScene();
+				
+				this.off('click',null);// Remove event handler
 			}
 
 			if (core.score > 290){
 				this._themeSound.stop();
 				core.scene = config.Scene.LEVEL2;
 				core.changeScene();
+
+				this.off('click',null);// Remove event handler
 				//Fix this later if it can be fixed
 				//Remove the player, sharks, treasure, background.dx = 0, add button and on button click switch scenes
 				//This might need to be in a new scene.
@@ -183,7 +196,7 @@ module scenes {
 			this._scoreLbl.text="Score: "+core.score;
 
 			this.checkBounds();
-		}
+		
 
 			
 		}

@@ -62,6 +62,14 @@ var scenes;
             // start sound
             this._themeSound = createjs.Sound.play('shipEngine');
             this._themeSound.loop = -1;
+            this.on('click', function () {
+                for (var bullet in this._bullets) {
+                    if (!this._bullets[bullet].InFlight) {
+                        this._bullets[bullet].Fire(this._player.position);
+                        break;
+                    }
+                }
+            });
         };
         Level1.prototype.Test = function () {
             console.log("Fire");
@@ -108,42 +116,43 @@ var scenes;
                     }
                 });
             }*/
-            this.addEventListener('click', function () {
-                if (this._frameCount % 10 == 0) {
-                    console.log("fire");
-                    for (var bullet in this._bullets) {
-                        if (!this._bullets[bullet].InFlight) {
-                            this._bullets[bullet].Fire(this._player.position);
-                            break;
-                        }
-                    }
-                }
-            });
-            if (this._frameCount % 10 == 0) {
-                for (var bullet in this._bullets) {
-                    if (!this._bullets[bullet].InFlight) {
-                        this._bullets[bullet].Fire(this._player.position);
-                        break;
-                    }
-                }
-                // update treasure
-                this._treasure.update();
-                this._collision.check(this._player, this._treasure);
-                if (core.lives < 1) {
-                    this._themeSound.stop();
-                    core.scene = config.Scene.OVER;
-                    core.changeScene();
-                }
-                if (core.score > 290) {
-                    this._themeSound.stop();
-                    core.scene = config.Scene.LEVEL2;
-                    core.changeScene();
-                }
-                // update score and lives
-                this._livesLbl.text = "Lives: " + core.lives;
-                this._scoreLbl.text = "Score: " + core.score;
-                this.checkBounds();
+            // this.addEventListener('click', function(){			
+            // 	if (this._frameCount % 10 == 0) {
+            // 		console.log("fire");
+            // 		for (var bullet in this._bullets) {
+            // 			if (!this._bullets[bullet].InFlight) {
+            // 				this._bullets[bullet].Fire(this._player.position);
+            // 				break;
+            // 			}
+            // 		}
+            //       }})
+            // if (this._frameCount % 10 == 0) {
+            // 		for (var bullet in this._bullets) {
+            // 			if (!this._bullets[bullet].InFlight) {
+            // 				this._bullets[bullet].Fire(this._player.position);
+            // 				break;
+            // 			}
+            // 		}
+            // }
+            // update treasure
+            this._treasure.update();
+            this._collision.check(this._player, this._treasure);
+            if (core.lives < 1) {
+                this._themeSound.stop();
+                core.scene = config.Scene.OVER;
+                core.changeScene();
+                this.off('click', null); // Remove event handler
             }
+            if (core.score > 290) {
+                this._themeSound.stop();
+                core.scene = config.Scene.LEVEL2;
+                core.changeScene();
+                this.off('click', null); // Remove event handler
+            }
+            // update score and lives
+            this._livesLbl.text = "Lives: " + core.lives;
+            this._scoreLbl.text = "Score: " + core.score;
+            this.checkBounds();
         };
         Level1.prototype.checkBounds = function () {
             // if (this._bgImage.x<(-(this._bgImage.getBounds().width-640))) {

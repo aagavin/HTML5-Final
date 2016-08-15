@@ -5,7 +5,6 @@ module scenes {
 		private _startButton: objects.Button;
 		private _instruction: objects.Button;
 		private _bgImage:createjs.Bitmap;
-		private _bubbles:Array<objects.Bubble>;
 
 		/**
 		 * Creates an instance of Menu.
@@ -22,16 +21,6 @@ module scenes {
 			// add background image
 			this._bgImage = new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
 			this.addChild(this._bgImage);
-
-			// add bubble effect
-			this._bubbles = [
-				new objects.Bubble(false),new objects.Bubble(false),new objects.Bubble(false),
-				new objects.Bubble(false),new objects.Bubble(false),new objects.Bubble(false)
-			];
-			this._bubbles.forEach(bubble => {
-				this.addChild(bubble);
-			});
-
 
 			// Add Menu Label
 			this._menuLabel = new objects.Label(
@@ -77,9 +66,6 @@ module scenes {
 		 * scene updates happen here...
 		 */
 		public Update():void {
-			this._bubbles.forEach(bubble => {
-				bubble.update();
-			});
 
 			this._bgImage.x-=.5;
 			this.checkBounds();

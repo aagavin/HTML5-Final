@@ -80,14 +80,9 @@ namespace core {
 		{ id: "epic", src: "../../Assets/audio/epic.mp3"},
 		{ id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg"},
 		{ id: "coin", src: "../../Assets/audio/lifeup.wav"},
-<<<<<<< HEAD
-		{ id: "death", src: "../../Assets/audio/death.mp3"},
-		{ id: "gameover", src: "../../Assets/audio/gameover.ogg"}
-=======
 		{ id: "death", src: "../../Assets/audio/death.wav"},
 		{ id: "gameover", src: "../../Assets/audio/gameover.ogg"},
 		{ id: "level3_music", src: "../../Assets/audio/level3_music.ogg"}
->>>>>>> 755414b5859c27d4060833a6a8d824f571e6efba
 	];
 
 	/**

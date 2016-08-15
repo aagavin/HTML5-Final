@@ -23,11 +23,7 @@ var managers;
                             core.lives += 1;
                         }
                     }
-                    if (other.name === 'bullet') {
-                        createjs.Sound.play("bulletHit");
-                        prime.Reset();
-                        other.Reset();
-                        core.score += 10;
+                    if (other.name === 'bullet' || other.name === 'bulletPlayer') {
                         createjs.Sound.play("death");
                         prime.Reset();
                         other.Reset();
@@ -40,6 +36,14 @@ var managers;
                     if (other.name === 'star') {
                         core.lives -= 1;
                         other.Reset();
+                    }
+                    if (other.name === 'injured') {
+                        createjs.Sound.play("thanks");
+                        prime.Reset();
+                        other.Reset();
+                        core.score += 10;
+                        core.peopleSaved += 1;
+                        console.log(core.peopleSaved);
                     }
                     // bulletPlayer
                     if (prime.name === 'star' && other.name === 'bulletPlayer') {

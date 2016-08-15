@@ -17,6 +17,7 @@
 /// <reference path="../objects/bullet/bullet.ts"/>
 /// <reference path="../managers/collision.ts" />
 /// <reference path="../objects/treasure/treasure.ts" />
+/// <reference path="../objects/treasure/injuredpeople.ts" />
 
 /// <reference path="../scenes/over/over.ts"/>
 /// <reference path="../scenes/level1/level1.ts"/>

@@ -85,7 +85,7 @@ var core;
         core.stage.enableMouseOver(20);
         // setup the default scene
         // scene = config.Scene.MENU;
-        core.scene = config.Scene.LEVEL3;
+        core.scene = config.Scene.LEVEL2;
         // scene=config.Scene.LEVEL2;
         changeScene();
         createjs.Ticker.framerate = 60;

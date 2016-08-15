@@ -34,12 +34,8 @@ module managers{
 						}
 					}
 
-					if(other.name==='bullet'){
-						createjs.Sound.play("bulletHit");
-						prime.Reset();
-						other.Reset();
-						core.score += 10;
-
+					if(other.name==='bullet' || other.name==='bulletPlayer'){
+	
 						createjs.Sound.play("death");
 						prime.Reset();
 						other.Reset();

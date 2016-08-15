@@ -29,7 +29,7 @@ namespace core {
 	// Score and lives
 	export let score:number = 0;
 	export let lives:number = 0;
-	export let bossLives:number =10;
+	export let bossLives:number =20;
 	export let highScore:number = 0;
 	export let peopleSaved:number = 0;
 

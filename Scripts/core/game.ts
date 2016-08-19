@@ -49,6 +49,7 @@ namespace core {
 	let level3: scenes.Level3;
 	let instruction: scenes.Instructions;
 	let win: scenes.Win;
+	let l1tol2: scenes.L1toL2;
 
 
 
@@ -62,6 +63,7 @@ namespace core {
 		{ id: "player_level3", src: "../../Assets/images/player_level3.png" },
 		{ id: "shark", src: "../../Assets/images/shark.png" },
 		{ id: "startBtn", src: "../../Assets/images/startBtn.png" },
+		{ id: "level2Btn", src: "../../Assets/images/L2Btn.png" },
 		{ id: "exitButton", src: "../../Assets/images/exitButton.png" },
 		{ id: "treasure", src: "../../Assets/images/treasure.png" },
 		{ id: "injured", src: "../../Assets/images/injuredEmoji.png" },
@@ -179,6 +181,11 @@ namespace core {
 				stage.removeAllChildren();
 				win = new scenes.Win();
 				currentScene = win;
+				break;
+			case config.Scene.L1TOL2:
+				stage.removeAllChildren();
+				l1tol2 = new scenes.L1toL2();
+				currentScene = l1tol2;
 				break;
 		}
 	}

@@ -54,7 +54,7 @@ var core;
         { id: "finalBoss", src: "../../Assets/images/finalBoss.png" },
         { id: "star", src: "../../Assets/images/star.png" },
         { id: "bulletPlayer", src: "../../Assets/images/bulletPlayer.gif" },
-        { id: "shipEngine", src: "../../Assets/audio/spaceshipEngineShor.mp3" },
+        { id: "level1_music", src: "../../Assets/audio/level1_music.mp3" },
         { id: "thanks", src: "../../Assets/audio/thankyou.mp3" },
         { id: "theduel", src: "../../Assets/audio/theduel.ogg" },
         { id: "epic", src: "../../Assets/audio/epic.mp3" },

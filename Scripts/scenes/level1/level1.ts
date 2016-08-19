@@ -92,7 +92,7 @@ module scenes {
 			// add scene to stage
 			core.stage.addChild(this);
 			// start sound
-			this._themeSound=createjs.Sound.play('shipEngine');
+			this._themeSound=createjs.Sound.play('level1_music');
 			this._themeSound.loop=-1;
 
 			//Shoot with mouseclick function

@@ -30,7 +30,7 @@ var objects;
          */
         Heart.prototype.Reset = function () {
             this._dx = Math.floor(Math.random() * 3) + 2;
-            this.x = 800 + this.width;
+            this.x = 5000 + this.width;
             this.y = Math.floor(Math.random() * ((480 - this.width) - 200 + 1) + 200);
         };
         /**

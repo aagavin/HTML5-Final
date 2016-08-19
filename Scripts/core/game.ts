@@ -183,14 +183,14 @@ namespace core {
 		}
 	}
 
-	window.addEventListener("keyPress", checkKeyPressed, false);
+	
 
 	function checkKeyPressed(keyPressed) {
-		alert("you pressed a key");
+		
 		
 		if (keyPressed.keyCode == "49") {
 
-			alert("The '1' key is pressed.");
+			
 			scene = config.Scene.LEVEL1;
 			changeScene();
 		}
@@ -198,12 +198,12 @@ namespace core {
 			scene = config.Scene.LEVEL2;
 			changeScene();
 		}
-		else if (keyPressed.keyCode == 51) {
+		else if (keyPressed.keyCode == "51") {
 			scene = config.Scene.LEVEL3;
 			changeScene();
 		}
 	}
-
+document.addEventListener("keypress", checkKeyPressed, false);
 
 	//wait until the window object is finished loading then call the init method
 	window.addEventListener("load", preload);

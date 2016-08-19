@@ -27,13 +27,13 @@ namespace core {
 	export let stage: createjs.Stage;
 
 	// Score and lives
-	export let score:number = 0;
-	export let lives:number = 0;
-	export let bossLives:number =20;
-	export let highScore:number = 0;
-	export let peopleSaved:number = 0;
+	export let score: number = 0;
+	export let lives: number = 0;
+	export let bossLives: number = 20;
+	export let highScore: number = 0;
+	export let peopleSaved: number = 0;
 
- 
+
 
 
 	let startButton: objects.Button; // reference to our button class
@@ -53,38 +53,38 @@ namespace core {
 
 
 	// asset manifest for images and sounds
-	let assetData:objects.Asset[] = [
+	let assetData: objects.Asset[] = [
 		{ id: "instructionsBtn", src: "../../Assets/images/instructions.png" },
-		{ id: "bgPlayImg", src: "../../Assets/images/bg.jpg"},
-		{ id: "bgPlayImgL2", src: "../../Assets/images/spaceshipinterior.jpg"},
-		{ id: "bubble", src: "../../Assets/images/bubble2.png"},
-		{ id: "diver", src: "../../Assets/images/spaceship.png"},
-		{ id: "player_level3", src: "../../Assets/images/player_level3.png"},
-		{ id: "shark", src: "../../Assets/images/shark.png"},
-   	{ id: "startBtn", src: "../../Assets/images/startBtn.png"},
-		{ id: "exitButton", src: "../../Assets/images/exitButton.png"},
-		{ id: "treasure", src: "../../Assets/images/treasure.png"},
-		{ id: "injured", src: "../../Assets/images/injuredEmoji.png"},
-		{ id: "bullet", src: "../../Assets/images/bullet.png"},
-		{ id: "bulletPlayer", src: "../../Assets/images/bulletPlayer.png"},
-		{ id: "laser", src: "../../Assets/audio/laser.wav"},
-		{ id: "playagain", src: "../../Assets/images/playagain.png"},
-		{ id: "menu", src: "../../Assets/images/menu.png"},
-		{ id: "player_level3", src: "../../Assets/images/player_level3.png"},
-		{ id: "finalBoss", src: "../../Assets/images/finalBoss.png"},
-		{ id: "star", src: "../../Assets/images/star.png"},
-		{ id: "bulletPlayer", src: "../../Assets/images/bulletPlayer.gif"},
+		{ id: "bgPlayImg", src: "../../Assets/images/bg.jpg" },
+		{ id: "bgPlayImgL2", src: "../../Assets/images/spaceshipinterior.jpg" },
+		{ id: "bubble", src: "../../Assets/images/bubble2.png" },
+		{ id: "diver", src: "../../Assets/images/spaceship.png" },
+		{ id: "player_level3", src: "../../Assets/images/player_level3.png" },
+		{ id: "shark", src: "../../Assets/images/shark.png" },
+		{ id: "startBtn", src: "../../Assets/images/startBtn.png" },
+		{ id: "exitButton", src: "../../Assets/images/exitButton.png" },
+		{ id: "treasure", src: "../../Assets/images/treasure.png" },
+		{ id: "injured", src: "../../Assets/images/injuredEmoji.png" },
+		{ id: "bullet", src: "../../Assets/images/bullet.png" },
+		{ id: "bulletPlayer", src: "../../Assets/images/bulletPlayer.png" },
+		{ id: "laser", src: "../../Assets/audio/laser.wav" },
+		{ id: "playagain", src: "../../Assets/images/playagain.png" },
+		{ id: "menu", src: "../../Assets/images/menu.png" },
+		{ id: "player_level3", src: "../../Assets/images/player_level3.png" },
+		{ id: "finalBoss", src: "../../Assets/images/finalBoss.png" },
+		{ id: "star", src: "../../Assets/images/star.png" },
+		{ id: "bulletPlayer", src: "../../Assets/images/bulletPlayer.gif" },
 
 
-		{ id: "level1_music", src: "../../Assets/audio/level1_music.mp3"},
-		{ id: "thanks", src: "../../Assets/audio/thankyou.mp3"},
-		{ id: "theduel", src: "../../Assets/audio/theduel.ogg"},
-		{ id: "epic", src: "../../Assets/audio/epic.mp3"},
-		{ id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg"},
-		{ id: "coin", src: "../../Assets/audio/lifeup.wav"},
-		{ id: "death", src: "../../Assets/audio/death.wav"},
-		{ id: "gameover", src: "../../Assets/audio/gameover.ogg"},
-		{ id: "level3_music", src: "../../Assets/audio/level3_music.ogg"}
+		{ id: "level1_music", src: "../../Assets/audio/level1_music.mp3" },
+		{ id: "thanks", src: "../../Assets/audio/thankyou.mp3" },
+		{ id: "theduel", src: "../../Assets/audio/theduel.ogg" },
+		{ id: "epic", src: "../../Assets/audio/epic.mp3" },
+		{ id: "comic-bite", src: "../../Assets/audio/comic-bite.ogg" },
+		{ id: "coin", src: "../../Assets/audio/lifeup.wav" },
+		{ id: "death", src: "../../Assets/audio/death.wav" },
+		{ id: "gameover", src: "../../Assets/audio/gameover.ogg" },
+		{ id: "level3_music", src: "../../Assets/audio/level3_music.ogg" }
 	];
 
 	/**
@@ -175,7 +175,7 @@ namespace core {
 				instruction = new scenes.Instructions();
 				currentScene = instruction;
 				break;
-				case config.Scene.WIN:
+			case config.Scene.WIN:
 				stage.removeAllChildren();
 				win = new scenes.Win();
 				currentScene = win;
@@ -183,6 +183,26 @@ namespace core {
 		}
 	}
 
+	window.addEventListener("keyPress", checkKeyPressed, false);
+
+	function checkKeyPressed(keyPressed) {
+		alert("you pressed a key");
+		
+		if (keyPressed.keyCode == "49") {
+
+			alert("The '1' key is pressed.");
+			scene = config.Scene.LEVEL1;
+			changeScene();
+		}
+		else if (keyPressed.keyCode == "50") {
+			scene = config.Scene.LEVEL2;
+			changeScene();
+		}
+		else if (keyPressed.keyCode == 51) {
+			scene = config.Scene.LEVEL3;
+			changeScene();
+		}
+	}
 
 
 	//wait until the window object is finished loading then call the init method

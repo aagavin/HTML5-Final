@@ -54,7 +54,7 @@ var core;
         { id: "finalBoss", src: "../../Assets/images/finalBoss.png" },
         { id: "star", src: "../../Assets/images/star.png" },
         { id: "bulletPlayer", src: "../../Assets/images/bulletPlayer.gif" },
-        { id: "shipEngine", src: "../../Assets/audio/spaceshipEngineShor.mp3" },
+        { id: "level1_music", src: "../../Assets/audio/level1_music.mp3" },
         { id: "thanks", src: "../../Assets/audio/thankyou.mp3" },
         { id: "theduel", src: "../../Assets/audio/theduel.ogg" },
         { id: "epic", src: "../../Assets/audio/epic.mp3" },
@@ -149,6 +149,21 @@ var core;
         }
     }
     core.changeScene = changeScene;
+    function checkKeyPressed(keyPressed) {
+        if (keyPressed.keyCode == "49") {
+            core.scene = config.Scene.LEVEL1;
+            changeScene();
+        }
+        else if (keyPressed.keyCode == "50") {
+            core.scene = config.Scene.LEVEL2;
+            changeScene();
+        }
+        else if (keyPressed.keyCode == "51") {
+            core.scene = config.Scene.LEVEL3;
+            changeScene();
+        }
+    }
+    document.addEventListener("keypress", checkKeyPressed, false);
     //wait until the window object is finished loading then call the init method
     window.addEventListener("load", preload);
 })(core || (core = {}));

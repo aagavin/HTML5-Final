@@ -11,13 +11,13 @@ var objects;
      * @class Treasure
      * @extends {objects.GameObject}
      */
-    var Treasure = (function (_super) {
-        __extends(Treasure, _super);
+    var Heart = (function (_super) {
+        __extends(Heart, _super);
         /**
          * Creates an instance of Treasure.
          * @constructor
          */
-        function Treasure() {
+        function Heart() {
             _super.call(this, 'treasure');
             this.start();
         }
@@ -28,7 +28,7 @@ var objects;
          * @private
          * @returns {void}
          */
-        Treasure.prototype.Reset = function () {
+        Heart.prototype.Reset = function () {
             this._dx = Math.floor(Math.random() * 3) + 2;
             this.x = 800 + this.width;
             this.y = Math.floor(Math.random() * ((480 - this.width) - 200 + 1) + 200);
@@ -40,7 +40,7 @@ var objects;
          * @method _checkBounds
          * @returns {void}
          */
-        Treasure.prototype._checkBounds = function () {
+        Heart.prototype._checkBounds = function () {
             if (this.x <= -(this.width * 2)) {
                 this.Reset();
             }
@@ -54,7 +54,7 @@ var objects;
          * @method start
          * @returns {void}
          */
-        Treasure.prototype.start = function () {
+        Heart.prototype.start = function () {
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
@@ -69,14 +69,14 @@ var objects;
          * @method update
          * @returns {void}
          */
-        Treasure.prototype.update = function () {
+        Heart.prototype.update = function () {
             // this.y += this._dx;
             this.x -= this._dx;
             this.position = new objects.Vector2(this.x, this.y);
             this._checkBounds();
         };
-        return Treasure;
+        return Heart;
     }(objects.GameObject));
-    objects.Treasure = Treasure;
+    objects.Heart = Heart;
 })(objects || (objects = {}));
 //# sourceMappingURL=treasure.js.map

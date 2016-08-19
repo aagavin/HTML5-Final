@@ -6,7 +6,7 @@ module objects{
 	 * @class Treasure
 	 * @extends {objects.GameObject}
 	 */
-	export class Treasure extends objects.GameObject{
+	export class Heart extends objects.GameObject{
 		// prvate instand varables
 		private _dx:number;
 

@@ -66,7 +66,7 @@ namespace core {
 		{ id: "level2Btn", src: "../../Assets/images/L2Btn.png" },
 		{ id: "exitButton", src: "../../Assets/images/exitButton.png" },
 		{ id: "treasure", src: "../../Assets/images/treasure.png" },
-		{ id: "injured", src: "../../Assets/images/injuredEmoji.png" },
+		{ id: "injured", src: "../../Assets/images/injured.png" },
 		{ id: "bullet", src: "../../Assets/images/bullet.png" },
 		{ id: "bulletPlayer", src: "../../Assets/images/bulletPlayer.png" },
 		{ id: "laser", src: "../../Assets/audio/laser.wav" },

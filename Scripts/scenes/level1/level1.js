@@ -13,15 +13,12 @@ var scenes;
      */
     var Level1 = (function (_super) {
         __extends(Level1, _super);
-        //private _nextLevelBtn: objects.Button;
         /**
          * Creates an instance of Level1.
          *
          */
         function Level1() {
             _super.call(this);
-            //private _amfiring:boolean;
-            //private _keyboardControls: objects.KeyboardControls;
             this._frameCount = 0;
         }
         // Public methods
@@ -50,8 +47,8 @@ var scenes;
                 _this.addChild(shark);
             });
             //Add and create heart icon
-            this._treasure = new objects.Treasure();
-            this.addChild(this._treasure);
+            this._heart = new objects.Heart();
+            this.addChild(this._heart);
             //create and add bullet objects (10)
             this._bullets = new Array();
             for (var bullet = 0; bullet < 10; bullet++) {
@@ -108,8 +105,8 @@ var scenes;
                 });
             });
             // update treasure
-            this._treasure.update();
-            this._collision.check(this._player, this._treasure);
+            this._heart.update();
+            this._collision.check(this._player, this._heart);
             //Death condition
             if (core.lives < 1) {
                 this._themeSound.stop();

@@ -9,20 +9,17 @@ module scenes {
 	export class Level1 extends objects.Scene{
 		// Private instance varables
 		private _bgImage:createjs.Bitmap;
-		// private _bubbles:Array<objects.Bubble>;
+
 		private _player:objects.Player;
 		private _sharks:Array<objects.Shark>;
 		private _collision: managers.Collision;
-		private _treasure: objects.Treasure;
+		private _heart: objects.Heart;
 		private _themeSound: createjs.AbstractSoundInstance;
 		private _scoreLbl:objects.Label;
 		private _livesLbl:objects.Label;
 		private _bullets:objects.Bullet[];
-		//private _amfiring:boolean;
 
-		//private _keyboardControls: objects.KeyboardControls;
 		private _frameCount: number = 0;
-		//private _nextLevelBtn: objects.Button;
 
 		/**
 		 * Creates an instance of Level1.
@@ -63,8 +60,8 @@ module scenes {
 			});
 
 			//Add and create heart icon
-			this._treasure=new objects.Treasure();
-			this.addChild(this._treasure);
+			this._heart=new objects.Heart();
+			this.addChild(this._heart);
 
 			//create and add bullet objects (10)
 			this._bullets = new Array<objects.Bullet>();
@@ -92,7 +89,7 @@ module scenes {
 			// add scene to stage
 			core.stage.addChild(this);
 			// start sound
-			this._themeSound=createjs.Sound.play('shipEngine');
+			this._themeSound=createjs.Sound.play('level1_music');
 			this._themeSound.loop=-1;
 
 			//Shoot with mouseclick function
@@ -134,8 +131,8 @@ module scenes {
 			});
 
 			// update treasure
-			this._treasure.update();
-			this._collision.check(this._player, this._treasure);
+			this._heart.update();
+			this._collision.check(this._player, this._heart);
 
 			//Death condition
 			if (core.lives<1) {

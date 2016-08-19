@@ -60,7 +60,7 @@ var objects;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
             //this.y = 1000;
-            this.x = this.width * 0.5;
+            this.x = this.width * 0.8;
         };
         /**
          * This method updates the object's properties

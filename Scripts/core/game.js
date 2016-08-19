@@ -38,7 +38,6 @@ var core;
         { id: "instructionsBtn", src: "../../Assets/images/instructions.png" },
         { id: "bgPlayImg", src: "../../Assets/images/bg.jpg" },
         { id: "bgPlayImgL2", src: "../../Assets/images/spaceshipinterior.jpg" },
-        { id: "bubble", src: "../../Assets/images/bubble2.png" },
         { id: "diver", src: "../../Assets/images/spaceship.png" },
         { id: "player_level3", src: "../../Assets/images/player_level3.png" },
         { id: "shark", src: "../../Assets/images/shark.png" },

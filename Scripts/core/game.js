@@ -149,6 +149,21 @@ var core;
         }
     }
     core.changeScene = changeScene;
+    function checkKeyPressed(keyPressed) {
+        if (keyPressed.keyCode == "49") {
+            core.scene = config.Scene.LEVEL1;
+            changeScene();
+        }
+        else if (keyPressed.keyCode == "50") {
+            core.scene = config.Scene.LEVEL2;
+            changeScene();
+        }
+        else if (keyPressed.keyCode == "51") {
+            core.scene = config.Scene.LEVEL3;
+            changeScene();
+        }
+    }
+    document.addEventListener("keypress", checkKeyPressed, false);
     //wait until the window object is finished loading then call the init method
     window.addEventListener("load", preload);
 })(core || (core = {}));

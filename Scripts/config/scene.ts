@@ -7,6 +7,7 @@ module config {
         OVER,
         INSTRUCTIONS,
         WIN,
-        L1TOL2
+        L1TOL2,
+        L2TOL3
     }
 }

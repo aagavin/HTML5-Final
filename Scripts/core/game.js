@@ -18,7 +18,7 @@ var core;
     var canvas = document.getElementById("canvas");
     // Score and lives
     core.score = 0;
-    core.lives = 0;
+    core.lives = 10;
     core.bossLives = 20;
     core.highScore = 0;
     core.peopleSaved = 0;
@@ -33,6 +33,7 @@ var core;
     var instruction;
     var win;
     var l1tol2;
+    var l2tol3;
     // asset manifest for images and sounds
     var assetData = [
         { id: "instructionsBtn", src: "../../Assets/images/instructions.png" },
@@ -152,24 +153,31 @@ var core;
                 l1tol2 = new scenes.L1toL2();
                 currentScene = l1tol2;
                 break;
+            case config.Scene.L2TOL3:
+                core.stage.removeAllChildren();
+                l2tol3 = new scenes.L2toL3();
+                currentScene = l2tol3;
+                break;
         }
     }
     core.changeScene = changeScene;
-    function checkKeyPressed(keyPressed) {
-        if (keyPressed.keyCode == "49") {
-            core.scene = config.Scene.LEVEL1;
-            changeScene();
-        }
-        else if (keyPressed.keyCode == "50") {
-            core.scene = config.Scene.LEVEL2;
-            changeScene();
-        }
-        else if (keyPressed.keyCode == "51") {
-            core.scene = config.Scene.LEVEL3;
-            changeScene();
+    document.addEventListener("keyup", checkKeyPressed, false);
+    function checkKeyPressed(key) {
+        switch (key.keyCode) {
+            case '49':
+                core.scene = config.Scene.LEVEL1;
+                changeScene();
+                break;
+            case '50':
+                core.scene = config.Scene.LEVEL2;
+                changeScene();
+                break;
+            case '51':
+                core.scene = config.Scene.LEVEL3;
+                changeScene();
+                break;
         }
     }
-    document.addEventListener("keypress", checkKeyPressed, false);
     //wait until the window object is finished loading then call the init method
     window.addEventListener("load", preload);
 })(core || (core = {}));

@@ -28,7 +28,7 @@ namespace core {
 
 	// Score and lives
 	export let score: number = 0;
-	export let lives: number = 0;
+	export let lives: number = 10;
 	export let bossLives: number = 20;
 	export let highScore: number = 0;
 	export let peopleSaved: number = 0;
@@ -50,6 +50,7 @@ namespace core {
 	let instruction: scenes.Instructions;
 	let win: scenes.Win;
 	let l1tol2: scenes.L1toL2;
+	let l2tol3: scenes.L2toL3;
 
 
 
@@ -58,7 +59,7 @@ namespace core {
 		{ id: "instructionsBtn", src: "../../Assets/images/instructions.png" },
 		{ id: "bgPlayImg", src: "../../Assets/images/bg.jpg" },
 		{ id: "bgPlayImgL2", src: "../../Assets/images/spaceshipinterior.jpg" },
-		
+
 		{ id: "diver", src: "../../Assets/images/spaceship.png" },
 		{ id: "player_level3", src: "../../Assets/images/player_level3.png" },
 		{ id: "shark", src: "../../Assets/images/shark.png" },
@@ -187,30 +188,36 @@ namespace core {
 				l1tol2 = new scenes.L1toL2();
 				currentScene = l1tol2;
 				break;
+			case config.Scene.L2TOL3:
+				stage.removeAllChildren();
+				l2tol3 = new scenes.L2toL3();
+				currentScene = l2tol3;
+				break;
 		}
 	}
 
-	
 
-	function checkKeyPressed(keyPressed) {
-		
-		
-		if (keyPressed.keyCode == "49") {
+	document.addEventListener("keyup", checkKeyPressed, false);
 
-			
-			scene = config.Scene.LEVEL1;
-			changeScene();
+	function checkKeyPressed(key) {
+
+		switch(key.keyCode){
+			case '49':
+				scene = config.Scene.LEVEL1;
+				changeScene();
+				break;
+			case '50':
+				scene = config.Scene.LEVEL2;
+				changeScene();
+				break;
+			case '51':
+				scene = config.Scene.LEVEL3;
+				changeScene();
+				break;
 		}
-		else if (keyPressed.keyCode == "50") {
-			scene = config.Scene.LEVEL2;
-			changeScene();
-		}
-		else if (keyPressed.keyCode == "51") {
-			scene = config.Scene.LEVEL3;
-			changeScene();
-		}
+
 	}
-document.addEventListener("keypress", checkKeyPressed, false);
+
 
 	//wait until the window object is finished loading then call the init method
 	window.addEventListener("load", preload);

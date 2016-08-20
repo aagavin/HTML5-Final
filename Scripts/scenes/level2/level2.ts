@@ -152,16 +152,6 @@ module scenes {
 			}
 		}
 
-		/**
-		 * Getter for stoping the sound
-		 * 
-		 * @readonly
-		 * @type {createjs.AbstractSoundInstance}
-		 */
-		public get themeSound(): createjs.AbstractSoundInstance {
-			return this._themeSound;
-		}
-
 
 	}
 }

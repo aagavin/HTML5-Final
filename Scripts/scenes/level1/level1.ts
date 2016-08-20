@@ -167,9 +167,6 @@ module scenes {
 			}
 		}
 
-		public get themeSound(): createjs.AbstractSoundInstance {
-			return this._themeSound;
-		}
 
 	}
 

@@ -1365,13 +1365,6 @@ var scenes;
                 this._bgImage.x = 0;
             }
         };
-        Object.defineProperty(Level1.prototype, "themeSound", {
-            get: function () {
-                return this._themeSound;
-            },
-            enumerable: true,
-            configurable: true
-        });
         return Level1;
     }(objects.Scene));
     scenes.Level1 = Level1;
@@ -1571,19 +1564,6 @@ var scenes;
                 this._bgImage.x = 0;
             }
         };
-        Object.defineProperty(Level2.prototype, "themeSound", {
-            /**
-             * Getter for stoping the sound
-             *
-             * @readonly
-             * @type {createjs.AbstractSoundInstance}
-             */
-            get: function () {
-                return this._themeSound;
-            },
-            enumerable: true,
-            configurable: true
-        });
         return Level2;
     }(objects.Scene));
     scenes.Level2 = Level2;
@@ -1788,19 +1768,6 @@ var scenes;
                 this._bgImage.x = 0;
             }
         };
-        Object.defineProperty(Level3.prototype, "themeSound", {
-            /**
-             * Getter for stoping the sound
-             *
-             * @readonly
-             * @type {createjs.AbstractSoundInstance}
-             */
-            get: function () {
-                return this._themeSound;
-            },
-            enumerable: true,
-            configurable: true
-        });
         return Level3;
     }(objects.Scene));
     scenes.Level3 = Level3;

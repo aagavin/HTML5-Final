@@ -17,7 +17,6 @@
 /// <reference path="../objects/treasure/injuredpeople.ts" />
 /// <reference path="../scenes/over/over.ts"/>
 /// <reference path="../scenes/level1/level1.ts"/>
-/// <reference path="../scenes/level1to2transition/level1to2.ts"/>
 /// <reference path="../scenes/level2/level2.ts"/>
 /// <reference path="../scenes/win/win.ts"/>
 /// <reference path="../scenes/level3/level3.ts"/>

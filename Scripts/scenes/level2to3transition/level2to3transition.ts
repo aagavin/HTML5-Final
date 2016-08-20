@@ -1,12 +1,5 @@
-module scenes {
-	/**
-	 * The scene between 1 and 2
-	 * 
-	 * @export scenes
-	 * @class L1toL2
-	 * @extends {objects.Scene}
-	 */
-	export class L1toL2 extends objects.Scene {
+module scenes{
+	export class L2toL3 extends objects.Scene{
 		//  PRIVATE INSTANCE VARIABLES
 		private _menuLabel: objects.Label;
 		private _menuLabel2: objects.Label;
@@ -15,18 +8,14 @@ module scenes {
 		private _exitButton: objects.Button;
 		private _bgImage:createjs.Bitmap;
 
-
 		/**
-		 * Creates an instance of L1toL2.
+		 * Creates an instance of L2toL3.
 		 * 
 		 */
 		constructor() {
 			super();
 		}
 
-		/**
-		 * Starts the scene
-		 */
 		public Start():void {
 			// add background image
 			this._bgImage = new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
@@ -75,11 +64,11 @@ module scenes {
 			this.addChild(this._exitButton);
 
 			// Start button event listener
-			this._startButton.on('click', this._startButtonClick, this);
-			// instructions button even listener
-			this._instruction.on('click', this._instructionButtonClick, this);
-			// End button event listener
-			this._exitButton.on('click', this._endButtonClick,this);
+			// this._startButton.on('click', this._startButtonClick, this);
+			// // instructions button even listener
+			// this._instruction.on('click', this._instructionButtonClick, this);
+			// // End button event listener
+			// this._exitButton.on('click', this._endButtonClick,this);
 
 			// add this scene to the global scene container
 			core.stage.addChild(this);
@@ -95,7 +84,6 @@ module scenes {
 		}
 
 		private checkBounds():void {
-			// if (this._bgImage.x<(-(this._bgImage.getBounds().width-640))) {
 			if (this._bgImage.x<(-1060)) {
 				this._bgImage.x=0;
 			}
@@ -103,20 +91,5 @@ module scenes {
 
 		// EVENT HANDLERS ++++++++++++++++
 
-		private _startButtonClick(event:createjs.MouseEvent):void {
-			// Switch the scene
-			core.scene = config.Scene.LEVEL2;
-			core.changeScene();
-		}
-
-		private _endButtonClick(event:createjs.MouseEvent):void{
-			core.scene = config.Scene.WIN;
-			core.changeScene();
-		}
-
-		private _instructionButtonClick(event:createjs.MouseEvent):void {
-			core.scene=config.Scene.INSTRUCTIONS;
-			core.changeScene();
-		}
 	}
 }

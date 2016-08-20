@@ -5,26 +5,16 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var scenes;
 (function (scenes) {
-    /**
-     * The scene between 1 and 2
-     *
-     * @export scenes
-     * @class L1toL2
-     * @extends {objects.Scene}
-     */
-    var L1toL2 = (function (_super) {
-        __extends(L1toL2, _super);
+    var L2toL3 = (function (_super) {
+        __extends(L2toL3, _super);
         /**
-         * Creates an instance of L1toL2.
+         * Creates an instance of L2toL3.
          *
          */
-        function L1toL2() {
+        function L2toL3() {
             _super.call(this);
         }
-        /**
-         * Starts the scene
-         */
-        L1toL2.prototype.Start = function () {
+        L2toL3.prototype.Start = function () {
             // add background image
             this._bgImage = new createjs.Bitmap(core.assets.getResult("bgPlayImg"));
             this.addChild(this._bgImage);
@@ -46,43 +36,28 @@ var scenes;
             this._exitButton = new objects.Button("exitButton", config.Screen.HALF_WIDTH, config.Screen.HEIGHT - 35, true);
             this.addChild(this._exitButton);
             // Start button event listener
-            this._startButton.on('click', this._startButtonClick, this);
-            // instructions button even listener
-            this._instruction.on('click', this._instructionButtonClick, this);
-            // End button event listener
-            this._exitButton.on('click', this._endButtonClick, this);
+            // this._startButton.on('click', this._startButtonClick, this);
+            // // instructions button even listener
+            // this._instruction.on('click', this._instructionButtonClick, this);
+            // // End button event listener
+            // this._exitButton.on('click', this._endButtonClick,this);
             // add this scene to the global scene container
             core.stage.addChild(this);
         };
         /**
          * scene updates happen here...
          */
-        L1toL2.prototype.Update = function () {
+        L2toL3.prototype.Update = function () {
             this._bgImage.x -= .5;
             this.checkBounds();
         };
-        L1toL2.prototype.checkBounds = function () {
-            // if (this._bgImage.x<(-(this._bgImage.getBounds().width-640))) {
+        L2toL3.prototype.checkBounds = function () {
             if (this._bgImage.x < (-1060)) {
                 this._bgImage.x = 0;
             }
         };
-        // EVENT HANDLERS ++++++++++++++++
-        L1toL2.prototype._startButtonClick = function (event) {
-            // Switch the scene
-            core.scene = config.Scene.LEVEL2;
-            core.changeScene();
-        };
-        L1toL2.prototype._endButtonClick = function (event) {
-            core.scene = config.Scene.WIN;
-            core.changeScene();
-        };
-        L1toL2.prototype._instructionButtonClick = function (event) {
-            core.scene = config.Scene.INSTRUCTIONS;
-            core.changeScene();
-        };
-        return L1toL2;
+        return L2toL3;
     }(objects.Scene));
-    scenes.L1toL2 = L1toL2;
+    scenes.L2toL3 = L2toL3;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=level1to2.js.map
+//# sourceMappingURL=level2to3transition.js.map

@@ -1,15 +1,23 @@
 module scenes {
+	/**
+	 * The scene between 1 and 2
+	 * 
+	 * @export scenes
+	 * @class L1toL2
+	 * @extends {objects.Scene}
+	 */
 	export class L1toL2 extends objects.Scene {
 		//  PRIVATE INSTANCE VARIABLES
 		private _menuLabel: objects.Label;
-        private _menuLabel2: objects.Label;
+		private _menuLabel2: objects.Label;
 		private _startButton: objects.Button;
 		private _instruction: objects.Button;
 		private _exitButton: objects.Button;
 		private _bgImage:createjs.Bitmap;
 
+
 		/**
-		 * Creates an instance of Menu.
+		 * Creates an instance of L1toL2.
 		 * 
 		 */
 		constructor() {

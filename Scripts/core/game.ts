@@ -2,7 +2,6 @@
 
 /**
  * @author Aaron Fernandes, Arlina Ramrattan, Neil Reading & Omid Khataee 
- * @studentID
  * @date []
  * @description This file is the entry point for the game
  * @version 1.0 - Shark attack game
@@ -28,15 +27,10 @@ namespace core {
 
 	// Score and lives
 	export let score: number = 0;
-	export let lives: number = 0;
+	export let lives: number = 10;
 	export let bossLives: number = 20;
 	export let highScore: number = 0;
 	export let peopleSaved: number = 0;
-
-
-
-
-	let startButton: objects.Button; // reference to our button class
 
 	// declare scene variables
 	let currentScene: objects.Scene;
@@ -50,6 +44,7 @@ namespace core {
 	let instruction: scenes.Instructions;
 	let win: scenes.Win;
 	let l1tol2: scenes.L1toL2;
+	let l2tol3: scenes.L2toL3;
 
 
 
@@ -58,12 +53,13 @@ namespace core {
 		{ id: "instructionsBtn", src: "../../Assets/images/instructions.png" },
 		{ id: "bgPlayImg", src: "../../Assets/images/bg.jpg" },
 		{ id: "bgPlayImgL2", src: "../../Assets/images/spaceshipinterior.jpg" },
-		
+
 		{ id: "diver", src: "../../Assets/images/spaceship.png" },
 		{ id: "player_level3", src: "../../Assets/images/player_level3.png" },
 		{ id: "shark", src: "../../Assets/images/shark.png" },
 		{ id: "startBtn", src: "../../Assets/images/startBtn.png" },
 		{ id: "level2Btn", src: "../../Assets/images/L2Btn.png" },
+		{ id: "level3Btn", src: "../../Assets/images/L3Btn.png"},
 		{ id: "exitButton", src: "../../Assets/images/exitButton.png" },
 		{ id: "treasure", src: "../../Assets/images/treasure.png" },
 		{ id: "injured", src: "../../Assets/images/injured.png" },
@@ -187,30 +183,50 @@ namespace core {
 				l1tol2 = new scenes.L1toL2();
 				currentScene = l1tol2;
 				break;
+			case config.Scene.L2TOL3:
+				stage.removeAllChildren();
+				l2tol3 = new scenes.L2toL3();
+				currentScene = l2tol3;
+				break;
 		}
 	}
 
-	
+	/**
+	 * Event handler
+	 */
+	document.addEventListener("keyup", checkKeyPressed, false);
 
-	function checkKeyPressed(keyPressed) {
-		
-		
-		if (keyPressed.keyCode == "49") {
+	/**
+	 * Checks what key is pressed. This method will also stop the sound of the scene
+	 * 
+	 * @param {KeyboardEvent} key
+	 * @returns void
+	 */
+	function checkKeyPressed(key: KeyboardEvent): void {
 
-			
-			scene = config.Scene.LEVEL1;
-			changeScene();
+		switch (key.keyCode) {
+			case 49:
+				createjs.Sound.stop();
+				stage.removeAllChildren();
+				level1 = new scenes.Level1();
+				currentScene = level1;
+				break;
+			case 50:
+				createjs.Sound.stop();
+				stage.removeAllChildren();
+				level2 = new scenes.Level2();
+				currentScene = level2;
+				break;
+			case 51:
+				createjs.Sound.stop();
+				stage.removeAllChildren();
+				level3 = new scenes.Level3();
+				currentScene = level3;
+				break;
 		}
-		else if (keyPressed.keyCode == "50") {
-			scene = config.Scene.LEVEL2;
-			changeScene();
-		}
-		else if (keyPressed.keyCode == "51") {
-			scene = config.Scene.LEVEL3;
-			changeScene();
-		}
+
 	}
-document.addEventListener("keypress", checkKeyPressed, false);
+
 
 	//wait until the window object is finished loading then call the init method
 	window.addEventListener("load", preload);

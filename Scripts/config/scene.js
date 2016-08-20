@@ -8,7 +8,6 @@ var config;
         Scene[Scene["OVER"] = 4] = "OVER";
         Scene[Scene["INSTRUCTIONS"] = 5] = "INSTRUCTIONS";
         Scene[Scene["WIN"] = 6] = "WIN";
-        Scene[Scene["L1TOL2"] = 7] = "L1TOL2";
     })(config.Scene || (config.Scene = {}));
     var Scene = config.Scene;
 })(config || (config = {}));

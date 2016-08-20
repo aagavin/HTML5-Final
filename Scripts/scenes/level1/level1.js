@@ -117,7 +117,7 @@ var scenes;
             //Level 2 condition
             if (core.score > 290) {
                 this._themeSound.stop();
-                core.scene = config.Scene.L1TOL2;
+                core.scene = config.Scene.LEVEL2;
                 core.changeScene();
                 this.off('click', null); // Remove event handler
             }

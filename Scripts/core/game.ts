@@ -196,23 +196,37 @@ namespace core {
 		}
 	}
 
-
+	/**
+	 * Event handler
+	 */
 	document.addEventListener("keyup", checkKeyPressed, false);
 
-	function checkKeyPressed(key) {
+	/**
+	 * Checks what key is pressed. This method will also stop the sound of the scene
+	 * 
+	 * @param {KeyboardEvent} key
+	 * @returns void
+	 */
+	function checkKeyPressed(key: KeyboardEvent): void {
 
-		switch(key.keyCode){
-			case '49':
-				scene = config.Scene.LEVEL1;
-				changeScene();
+		switch (key.keyCode) {
+			case 49:
+				createjs.Sound.stop();
+				stage.removeAllChildren();
+				level1 = new scenes.Level1();
+				currentScene = level1;
 				break;
-			case '50':
-				scene = config.Scene.LEVEL2;
-				changeScene();
+			case 50:
+				createjs.Sound.stop();
+				stage.removeAllChildren();
+				level2 = new scenes.Level2();
+				currentScene = level2;
 				break;
-			case '51':
-				scene = config.Scene.LEVEL3;
-				changeScene();
+			case 51:
+				createjs.Sound.stop();
+				stage.removeAllChildren();
+				level3 = new scenes.Level3();
+				currentScene = level3;
 				break;
 		}
 

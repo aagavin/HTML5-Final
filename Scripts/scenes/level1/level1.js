@@ -19,7 +19,6 @@ var scenes;
          */
         function Level1() {
             _super.call(this);
-            this._frameCount = 0;
         }
         // Public methods
         /**
@@ -83,9 +82,6 @@ var scenes;
         };
         Level1.prototype.Update = function () {
             var _this = this;
-            //this._amfiring = false;
-            // 
-            this._frameCount++;
             this._bgImage.x -= .5;
             this._bullets.forEach(function (bullet) {
                 // update each bullet
@@ -126,12 +122,24 @@ var scenes;
             this._scoreLbl.text = "Score: " + core.score;
             this.checkBounds();
         };
+        /**
+         *
+         *
+         * @private
+         */
         Level1.prototype.checkBounds = function () {
             // if (this._bgImage.x<(-(this._bgImage.getBounds().width-640))) {
             if (this._bgImage.x < (-1060)) {
                 this._bgImage.x = 0;
             }
         };
+        Object.defineProperty(Level1.prototype, "themeSound", {
+            get: function () {
+                return this._themeSound;
+            },
+            enumerable: true,
+            configurable: true
+        });
         return Level1;
     }(objects.Scene));
     scenes.Level1 = Level1;

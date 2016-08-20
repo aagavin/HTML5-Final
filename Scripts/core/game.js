@@ -161,20 +161,35 @@ var core;
         }
     }
     core.changeScene = changeScene;
+    /**
+     * Event handler
+     */
     document.addEventListener("keyup", checkKeyPressed, false);
+    /**
+     * Checks what key is pressed. This method will also stop the sound of the scene
+     *
+     * @param {KeyboardEvent} key
+     * @returns void
+     */
     function checkKeyPressed(key) {
         switch (key.keyCode) {
-            case '49':
-                core.scene = config.Scene.LEVEL1;
-                changeScene();
+            case 49:
+                createjs.Sound.stop();
+                core.stage.removeAllChildren();
+                level1 = new scenes.Level1();
+                currentScene = level1;
                 break;
-            case '50':
-                core.scene = config.Scene.LEVEL2;
-                changeScene();
+            case 50:
+                createjs.Sound.stop();
+                core.stage.removeAllChildren();
+                level2 = new scenes.Level2();
+                currentScene = level2;
                 break;
-            case '51':
-                core.scene = config.Scene.LEVEL3;
-                changeScene();
+            case 51:
+                createjs.Sound.stop();
+                core.stage.removeAllChildren();
+                level3 = new scenes.Level3();
+                currentScene = level3;
                 break;
         }
     }

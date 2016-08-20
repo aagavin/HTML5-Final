@@ -7,7 +7,6 @@ var scenes;
 (function (scenes) {
     var Level2 = (function (_super) {
         __extends(Level2, _super);
-        //private _amfiring:boolean;
         /**
          * Creates an instance of Play.
          *
@@ -54,7 +53,7 @@ var scenes;
             core.stage.addChild(this);
             // start sound
             this._themeSound = createjs.Sound.play('epic');
-            this._themeSound.volume = 0.2;
+            // this._themeSound.volume = 0.2;
             this._themeSound.loop = -1;
             this.on('click', function () {
                 for (var bullet in this._bullets) {
@@ -64,10 +63,6 @@ var scenes;
                     }
                 }
             });
-        };
-        Level2.prototype.Test = function () {
-            console.log("Fire");
-            return true;
         };
         Level2.prototype.Update = function () {
             var _this = this;
@@ -100,7 +95,7 @@ var scenes;
             }
             if (core.peopleSaved > 9) {
                 this._themeSound.stop();
-                core.scene = config.Scene.LEVEL3;
+                core.scene = config.Scene.L2TOL3;
                 core.changeScene();
                 this.off('click', null); // Remove event handler
             }
@@ -110,12 +105,30 @@ var scenes;
             this._peopleSavedLbl.text = "People Saved: " + core.peopleSaved;
             this.checkBounds();
         };
+        /**
+         * Allowing for bounds checking
+         *
+         * @private
+         */
         Level2.prototype.checkBounds = function () {
             // if (this._bgImage.x<(-(this._bgImage.getBounds().width-640))) {
             if (this._bgImage.x < (-2433)) {
                 this._bgImage.x = 0;
             }
         };
+        Object.defineProperty(Level2.prototype, "themeSound", {
+            /**
+             * Getter for stoping the sound
+             *
+             * @readonly
+             * @type {createjs.AbstractSoundInstance}
+             */
+            get: function () {
+                return this._themeSound;
+            },
+            enumerable: true,
+            configurable: true
+        });
         return Level2;
     }(objects.Scene));
     scenes.Level2 = Level2;

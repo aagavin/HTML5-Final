@@ -12,9 +12,6 @@ module scenes {
 		private _livesLbl: objects.Label;
 		private _peopleSavedLbl: objects.Label;
 		private _bullets: objects.Bullet[];
-		//private _amfiring:boolean;
-
-
 
 		/**
 		 * Creates an instance of Play.
@@ -71,8 +68,8 @@ module scenes {
 			// add scene to stage
 			core.stage.addChild(this);
 			// start sound
-			this._themeSound = createjs.Sound.play('epic')
-			this._themeSound.volume = 0.2;
+			this._themeSound = createjs.Sound.play('epic');
+			// this._themeSound.volume = 0.2;
 			this._themeSound.loop = -1;
 
 			this.on('click', function () {
@@ -83,11 +80,6 @@ module scenes {
 					}
 				}
 			});
-		}
-
-		public Test(): boolean {
-			console.log("Fire");
-			return true;
 		}
 
 		public Update(): void {
@@ -130,7 +122,7 @@ module scenes {
 
 			if (core.peopleSaved > 9) {
 				this._themeSound.stop();
-				core.scene = config.Scene.LEVEL3;
+				core.scene = config.Scene.L2TOL3;
 				core.changeScene();
 
 				this.off('click', null);// Remove event handler
@@ -148,11 +140,28 @@ module scenes {
 
 		}
 
+		/**
+		 * Allowing for bounds checking
+		 * 
+		 * @private
+		 */
 		private checkBounds() {
 			// if (this._bgImage.x<(-(this._bgImage.getBounds().width-640))) {
 			if (this._bgImage.x < (-2433)) {
 				this._bgImage.x = 0;
 			}
 		}
+
+		/**
+		 * Getter for stoping the sound
+		 * 
+		 * @readonly
+		 * @type {createjs.AbstractSoundInstance}
+		 */
+		public get themeSound(): createjs.AbstractSoundInstance {
+			return this._themeSound;
+		}
+
+
 	}
 }

@@ -133,92 +133,6 @@ var objects;
 var objects;
 (function (objects) {
     /**
-     *
-     * @export objects
-     * @class Bubble
-     * @extends {createjs.Bitmap}
-     */
-    var Bubble = (function (_super) {
-        __extends(Bubble, _super);
-        /**
-         * Creates an instance of Buble.
-         *
-         */
-        function Bubble(moveleft) {
-            if (moveleft === void 0) { moveleft = true; }
-            _super.call(this, core.assets.getResult('bubble'));
-            this._moveleft = moveleft;
-            this.start();
-        }
-        Object.defineProperty(Bubble.prototype, "height", {
-            // PUBLIC PROPERTIES
-            get: function () {
-                return this._height;
-            },
-            set: function (value) {
-                this._height = value;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Bubble.prototype, "width", {
-            get: function () {
-                return this._width;
-            },
-            set: function (value) {
-                this._width = value;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        /**
-         * This resets the object outsite of the vieport
-         * and sets the y locations
-         *
-         * @private
-         * @methmod _reset
-         * @returns {void}
-         */
-        Bubble.prototype._reset = function () {
-            this.x = Math.floor(Math.random() * 480) + 1;
-            650;
-            this.y = 490;
-        };
-        /**
-         * This methmod will reset the
-         *
-         * @private
-         */
-        Bubble.prototype._checkBounds = function () {
-            if ((this.y < (-1 * this.height)) || (this.x < (-1 * this.width))) {
-                this._reset();
-            }
-        };
-        // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++
-        Bubble.prototype.start = function () {
-            this.width = this.getBounds().width;
-            this.height = this.getBounds().height;
-            this.alpha = .08;
-            this.regX = this.width * .5;
-            this.regY = this.height * .5;
-            this.x = 650;
-            this.y = Math.floor(Math.random() * 480) + 1;
-            // this._reset();
-        };
-        Bubble.prototype.update = function () {
-            if (this._moveleft) {
-                this.x -= 1;
-            }
-            this.y -= 2;
-            this._checkBounds();
-        };
-        return Bubble;
-    }(createjs.Bitmap));
-    objects.Bubble = Bubble;
-})(objects || (objects = {}));
-var objects;
-(function (objects) {
-    /**
      * This class extends the CreateJS Point class
      *
      * @export
@@ -456,7 +370,6 @@ var objects;
 /// <reference path="_reference.ts"/>
 /**
  * @author Aaron Fernandes, Arlina Ramrattan, Neil Reading & Omid Khataee
- * @studentID
  * @date []
  * @description This file is the entry point for the game
  * @version 1.0 - Shark attack game
@@ -477,7 +390,6 @@ var core;
     core.bossLives = 20;
     core.highScore = 0;
     core.peopleSaved = 0;
-    var startButton; // reference to our button class
     // declare scene variables
     var currentScene;
     var menu;
@@ -499,6 +411,7 @@ var core;
         { id: "shark", src: "../../Assets/images/shark.png" },
         { id: "startBtn", src: "../../Assets/images/startBtn.png" },
         { id: "level2Btn", src: "../../Assets/images/L2Btn.png" },
+        { id: "level3Btn", src: "../../Assets/images/L3Btn.png" },
         { id: "exitButton", src: "../../Assets/images/exitButton.png" },
         { id: "treasure", src: "../../Assets/images/treasure.png" },
         { id: "injured", src: "../../Assets/images/injured.png" },
@@ -701,8 +614,6 @@ var objects;
      */
     var Player = (function (_super) {
         __extends(Player, _super);
-        // PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++
-        // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++
         /**
          * Creates an instance of Island.
@@ -760,7 +671,7 @@ var objects;
         Player.prototype.update = function () {
             // player to follow mouse
             this.position = new objects.Vector2(this.x, this.y);
-            this.y = core.stage.mouseY;
+            this.y = (core.stage.mouseY);
             this._checkBounds();
         };
         return Player;
@@ -2045,26 +1956,25 @@ var scenes;
             // Add Menu Label
             this._menuLabel = new objects.Label("Congratulations!", "40px", "Tahoma, Geneva, sans-serif", "#eee", config.Screen.HALF_WIDTH, 140);
             this._menuLabel.shadow = new createjs.Shadow("#fff", 0, 0, 15);
-            this._menuLabel2 = new objects.Label("You made it past the frontlines to the enemy ship.", "27px", "Tahoma, Geneva, sans-serif", "#ff0", config.Screen.HALF_WIDTH, 200);
-            //this._menuLabel2.shadow=new createjs.Shadow("#fff", 0,0,15);
-            this.addChild(new objects.Label("Save all the humans you come across while", "27px", "Tahoma, Geneva, sans-serif", "#ff0", config.Screen.HALF_WIDTH, 230));
-            this.addChild(new objects.Label("you make your way to the Shark leader.", "27px", "Tahoma, Geneva, sans-serif", "#ff0", config.Screen.HALF_WIDTH, 260));
+            this._menuLabel2 = new objects.Label("You found the shark leader", "27px", "Tahoma, Geneva, sans-serif", "#ff0", config.Screen.HALF_WIDTH, 200);
+            this.addChild(new objects.Label("Kill the sharknado boss", "27px", "Tahoma, Geneva, sans-serif", "#ff0", config.Screen.HALF_WIDTH, 230));
+            this.addChild(new objects.Label("but watch out for ninja stars", "27px", "Tahoma, Geneva, sans-serif", "#ff0", config.Screen.HALF_WIDTH, 260));
             this.addChild(this._menuLabel);
             this.addChild(this._menuLabel2);
             // add the start button
-            this._startButton = new objects.Button("level2Btn", 250, 400, true);
-            this.addChild(this._startButton);
+            this._nextScene = new objects.Button("level3Btn", 250, 400, true);
+            this.addChild(this._nextScene);
             this._instruction = new objects.Button("instructionsBtn", 600, 400, true);
             this.addChild(this._instruction);
             // end Button
             this._exitButton = new objects.Button("exitButton", config.Screen.HALF_WIDTH, config.Screen.HEIGHT - 35, true);
             this.addChild(this._exitButton);
             // Start button event listener
-            // this._startButton.on('click', this._startButtonClick, this);
-            // // instructions button even listener
-            // this._instruction.on('click', this._instructionButtonClick, this);
-            // // End button event listener
-            // this._exitButton.on('click', this._endButtonClick,this);
+            this._nextScene.on('click', this._startButtonClick, this);
+            // instructions button even listener
+            this._instruction.on('click', this._instructionButtonClick, this);
+            // End button event listener
+            this._exitButton.on('click', this._endButtonClick, this);
             // add this scene to the global scene container
             core.stage.addChild(this);
         };
@@ -2079,6 +1989,20 @@ var scenes;
             if (this._bgImage.x < (-1060)) {
                 this._bgImage.x = 0;
             }
+        };
+        // EVENT HANDLERS ++++++++++++++++
+        L2toL3.prototype._startButtonClick = function (event) {
+            // Switch the scene
+            core.scene = config.Scene.LEVEL3;
+            core.changeScene();
+        };
+        L2toL3.prototype._endButtonClick = function (event) {
+            core.scene = config.Scene.WIN;
+            core.changeScene();
+        };
+        L2toL3.prototype._instructionButtonClick = function (event) {
+            core.scene = config.Scene.INSTRUCTIONS;
+            core.changeScene();
         };
         return L2toL3;
     }(objects.Scene));

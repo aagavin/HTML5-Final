@@ -8,12 +8,6 @@ module objects {
      * @extends {objects.GameObject}
      */
     export class Player extends objects.GameObject {
-         // PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++
-
-
-        // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++
-
-
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++
         /**
          * Creates an instance of Island.
@@ -21,29 +15,29 @@ module objects {
          * @constructor
          * @param {string} imageString
          */
-        constructor(imageString:string) {
+        constructor(imageString: string) {
             super(imageString)
 
             this.start();
         }
 
-         /**
-         * This method checks if the object has reached its boundaries
-         * 
-         * @private
-         * @method _checkBounds
-         * @returns {void}
-         */
-        private _checkBounds():void {
+        /**
+        * This method checks if the object has reached its boundaries
+        * 
+        * @private
+        * @method _checkBounds
+        * @returns {void}
+        */
+        private _checkBounds(): void {
             // checkbounds to stop player from going outside
 
             // check right bounds
-            if(this.y >= (550 - (this.height * 0.5))) {
+            if (this.y >= (550 - (this.height * 0.5))) {
                 this.y = (550 - (this.height * 0.5));
             }
 
             // check left bounds
-            if(this.y <= (0 + (this.height * 0.5))) {
+            if (this.y <= (0 + (this.height * 0.5))) {
                 this.y = (0 + (this.height * 0.5));
             }
         }
@@ -58,8 +52,8 @@ module objects {
          * @method start
          * @returns {void}
          */
-        
-        public start():void {
+
+        public start(): void {
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
@@ -76,11 +70,11 @@ module objects {
          * @method update
          * @returns {void}
          */
-        public update():void {
+        public update(): void {
             // player to follow mouse
-            this.position=new objects.Vector2(this.x,this.y);
-            
-            this.y=core.stage.mouseY;
+            this.position = new objects.Vector2(this.x, this.y);
+
+            this.y = (core.stage.mouseY);
             this._checkBounds();
         }
     }

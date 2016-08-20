@@ -2,7 +2,6 @@
 
 /**
  * @author Aaron Fernandes, Arlina Ramrattan, Neil Reading & Omid Khataee 
- * @studentID
  * @date []
  * @description This file is the entry point for the game
  * @version 1.0 - Shark attack game
@@ -33,11 +32,6 @@ namespace core {
 	export let highScore: number = 0;
 	export let peopleSaved: number = 0;
 
-
-
-
-	let startButton: objects.Button; // reference to our button class
-
 	// declare scene variables
 	let currentScene: objects.Scene;
 	export let scene: number;
@@ -65,6 +59,7 @@ namespace core {
 		{ id: "shark", src: "../../Assets/images/shark.png" },
 		{ id: "startBtn", src: "../../Assets/images/startBtn.png" },
 		{ id: "level2Btn", src: "../../Assets/images/L2Btn.png" },
+		{ id: "level3Btn", src: "../../Assets/images/L3Btn.png"},
 		{ id: "exitButton", src: "../../Assets/images/exitButton.png" },
 		{ id: "treasure", src: "../../Assets/images/treasure.png" },
 		{ id: "injured", src: "../../Assets/images/injured.png" },

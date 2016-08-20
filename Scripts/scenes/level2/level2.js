@@ -7,16 +7,13 @@ var scenes;
 (function (scenes) {
     var Level2 = (function (_super) {
         __extends(Level2, _super);
-        //private _nextLevelBtn: objects.Button;
+        //private _amfiring:boolean;
         /**
          * Creates an instance of Play.
          *
          */
         function Level2() {
             _super.call(this);
-            //private _amfiring:boolean;
-            //private _keyboardControls: objects.KeyboardControls;
-            this._frameCount = 0;
         }
         // Public methods
         /**
@@ -38,8 +35,8 @@ var scenes;
             this._sharks.forEach(function (shark) {
                 _this.addChild(shark);
             });
-            this._treasure = new objects.InjuredPeople();
-            this.addChild(this._treasure);
+            this._injuredPeople = new objects.InjuredPeople();
+            this.addChild(this._injuredPeople);
             this._bullets = new Array();
             for (var bullet = 0; bullet < 10; bullet++) {
                 this._bullets.push(new objects.Bullet("bulletPlayer"));
@@ -74,9 +71,6 @@ var scenes;
         };
         Level2.prototype.Update = function () {
             var _this = this;
-            //this._amfiring = false;
-            // 
-            this._frameCount++;
             this._bgImage.x -= .5;
             this._bullets.forEach(function (bullet) {
                 // update each bullet
@@ -96,8 +90,8 @@ var scenes;
                 });
             });
             // update treasure
-            this._treasure.update();
-            this._collision.check(this._player, this._treasure);
+            this._injuredPeople.update();
+            this._collision.check(this._player, this._injuredPeople);
             if (core.lives < 1) {
                 this._themeSound.stop();
                 core.scene = config.Scene.OVER;
